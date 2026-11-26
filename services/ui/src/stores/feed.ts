@@ -88,7 +88,7 @@ const initialPosts: FeedPost[] = [
     likes: 582,
     liked: true,
     bookmarked: false,
-    image: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85',
+    image: 'https://images.unsplash.com/photo-1785637495266-c9608353f63a?auto=format&fit=crop&w=1200&q=85',
     imageAlt: 'Amanecer dorado entre montañas y nubes',
     comments: [
       {
