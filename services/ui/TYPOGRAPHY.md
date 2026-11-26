@@ -18,3 +18,11 @@ Los contadores usan `font-variant-numeric: tabular-nums`. Los campos de entrada
 se fijan en `1rem` (16 px) para evitar el zoom automático de iOS. Los colores
 semánticos de texto y superficie están definidos para mantener contraste WCAG
 AA tanto en claro como en oscuro.
+
+## Escala de tamaños
+
+El espaciado y los tamaños de componentes usan una escala basada en Fibonacci:
+`5, 8, 13, 21, 34, 55, 89 px` (`fib-1` a `fib-7`). Los tokens Tailwind viven
+en `src/assets/css/main.css`; se priorizan tamaños mayores para áreas táctiles
+y tamaños intermedios para separación y padding. La escala tipográfica se
+mantiene independiente para favorecer la legibilidad.

@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --spacing-fib-1: 0.3125rem;
+  --spacing-fib-2: 0.5rem;
+  --spacing-fib-3: 0.8125rem;
+  --spacing-fib-4: 1.3125rem;
+  --spacing-fib-5: 2.125rem;
+  --spacing-fib-6: 3.4375rem;
+  --spacing-fib-7: 5.5625rem;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {

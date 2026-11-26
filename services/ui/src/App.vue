@@ -57,22 +57,22 @@ function sharePost() {
 
 <template>
   <div class="min-h-screen bg-[#f4f4f5] text-slate-900 transition-colors dark:bg-[#09090b] dark:text-slate-100">
-    <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-6 px-4 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,720px)_320px] lg:gap-8">
+    <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-fib-4 px-fib-3 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,720px)_320px] lg:gap-fib-5">
       <!-- Left navigation -->
       <aside class="hidden md:block">
-        <div class="sticky top-0 flex h-screen flex-col px-1 py-4">
-          <a href="/" aria-label="Pairfy, inicio" class="mb-5 flex h-[58px] items-center gap-3 rounded-xl px-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
+        <div class="sticky top-0 flex h-screen flex-col px-1 py-fib-3">
+          <a href="/" aria-label="Pairfy, inicio" class="mb-fib-4 flex h-fib-6 items-center gap-fib-3 rounded-xl px-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
             <MessageCircleMore :size="30" :stroke-width="1.8" aria-hidden="true" />
             <span class="type-title-2">Pairfy</span>
           </a>
 
           <p class="type-micro mb-2 px-3 uppercase text-slate-400">Tu espacio</p>
-          <nav aria-label="Navegación principal" class="space-y-1">
+          <nav aria-label="Navegación principal" class="flex flex-col gap-fib-2">
             <button
               v-for="item in navItems"
               :key="item.name"
               type="button"
-              class="type-label group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left transition hover:bg-white dark:hover:bg-white/5"
+              class="type-label group flex w-full items-center gap-fib-3 rounded-xl px-fib-3 py-fib-3 text-left transition hover:bg-white dark:hover:bg-white/5"
               :class="item.active ? 'bg-neutral-900 text-white shadow-md shadow-neutral-950/10 hover:bg-neutral-800 dark:bg-neutral-700 dark:hover:bg-neutral-600' : 'text-slate-600 dark:text-slate-300'"
             >
               <span class="relative flex h-5 w-5 items-center justify-center">
@@ -84,19 +84,19 @@ function sharePost() {
             </button>
           </nav>
 
-          <button type="button" class="type-label mt-4 w-full rounded-xl bg-neutral-900 py-3 text-white shadow-lg shadow-neutral-950/15 transition hover:bg-neutral-800 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
+          <button type="button" class="type-label mt-fib-4 w-full rounded-xl bg-neutral-900 py-fib-3 text-white shadow-lg shadow-neutral-950/15 transition hover:bg-neutral-800 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
             Publicar
           </button>
 
-          <div class="mt-auto space-y-3 pb-3">
-            <div class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
+          <div class="mt-auto space-y-fib-3 pb-fib-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-fib-3 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
               <p class="type-label">Apariencia</p>
               <p class="type-caption mt-1 text-slate-500 dark:text-slate-400">Personaliza tu experiencia</p>
-              <div class="mt-3 grid grid-cols-2 gap-2">
+              <div class="mt-fib-3 grid grid-cols-2 gap-fib-2">
                 <button
                   type="button"
                   :aria-pressed="feed.theme === 'light'"
-                  class="type-caption flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-2 py-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
+                  class="type-caption flex items-center justify-center gap-fib-2 rounded-lg border border-slate-200 px-fib-2 py-fib-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
                   @click="feed.setTheme('light')"
                 >
                   <Sun :size="16" :stroke-width="1.8" class="h-4 w-4" aria-hidden="true" />
@@ -105,7 +105,7 @@ function sharePost() {
                 <button
                   type="button"
                   :aria-pressed="feed.theme === 'dark'"
-                  class="type-caption flex items-center justify-center gap-2 rounded-lg border border-slate-200 px-2 py-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
+                  class="type-caption flex items-center justify-center gap-fib-2 rounded-lg border border-slate-200 px-fib-2 py-fib-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
                   @click="feed.setTheme('dark')"
                 >
                   <Moon :size="16" :stroke-width="1.8" class="h-4 w-4" aria-hidden="true" />
@@ -114,8 +114,8 @@ function sharePost() {
               </div>
             </div>
 
-            <button type="button" class="flex w-full items-center gap-3 rounded-xl p-2 text-left transition hover:bg-white dark:hover:bg-white/5">
-              <span aria-hidden="true" class="type-caption flex h-10 w-10 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
+            <button type="button" class="flex w-full items-center gap-fib-3 rounded-xl p-fib-2 text-left transition hover:bg-white dark:hover:bg-white/5">
+              <span aria-hidden="true" class="type-caption flex h-fib-5 w-fib-5 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
               <span class="min-w-0 flex-1">
                 <span class="type-label block truncate">Mi perfil demo</span>
                 <span class="type-caption block truncate text-slate-500 dark:text-slate-400">@mi_perfil_demo</span>
@@ -129,7 +129,7 @@ function sharePost() {
       <!-- Feed -->
       <main class="min-h-screen min-w-0 w-full pb-20">
         <header class="sticky top-0 z-20 border-b border-slate-200/80 bg-[#f4f4f5]/70 backdrop-blur-md dark:border-white/10 dark:bg-[#09090b]/70">
-          <div class="flex h-[72px] items-center justify-between px-1">
+          <div class="flex h-fib-7 items-center justify-between px-1">
             <div>
               <p class="type-micro uppercase text-neutral-900 dark:text-neutral-300">PAIRFY · COMUNIDAD</p>
               <h1 class="type-title-1 mt-0.5">Tu inicio</h1>
@@ -138,10 +138,10 @@ function sharePost() {
               <Sparkles :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
-          <div class="mb-3 grid grid-cols-2 gap-1 rounded-xl bg-slate-200/70 p-1 dark:bg-white/[0.06]">
+          <div class="mb-fib-3 grid grid-cols-2 gap-fib-1 rounded-xl bg-slate-200/70 p-fib-1 dark:bg-white/[0.06]">
             <button
               type="button"
-              class="type-label rounded-lg py-2.5 text-slate-500 transition dark:text-slate-400"
+              class="type-label rounded-lg py-fib-2 text-slate-500 transition dark:text-slate-400"
               :class="{ '!bg-white !text-neutral-800 shadow-sm dark:!bg-[#27272a] dark:!text-neutral-200': feed.activeTab === 'for-you' }"
               @click="feed.activeTab = 'for-you'"
             >
@@ -149,7 +149,7 @@ function sharePost() {
             </button>
             <button
               type="button"
-              class="type-label rounded-lg py-2.5 text-slate-500 transition dark:text-slate-400"
+              class="type-label rounded-lg py-fib-2 text-slate-500 transition dark:text-slate-400"
               :class="{ '!bg-white !text-neutral-800 shadow-sm dark:!bg-[#27272a] dark:!text-neutral-200': feed.activeTab === 'following' }"
               @click="feed.activeTab = 'following'"
             >
@@ -158,9 +158,9 @@ function sharePost() {
           </div>
         </header>
 
-        <section aria-label="Crear publicación" class="mb-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
-          <div class="flex gap-3">
-            <span aria-hidden="true" class="type-label flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
+        <section aria-label="Crear publicación" class="mb-fib-4 rounded-2xl border border-slate-200 bg-white p-fib-4 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
+          <div class="flex gap-fib-3">
+            <span aria-hidden="true" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
             <div class="min-w-0 flex-1">
               <p class="type-label mb-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
               <textarea
@@ -168,9 +168,9 @@ function sharePost() {
                 aria-label="Comparte algo con tu comunidad"
                 placeholder="¿Qué te gustaría compartir?"
                 rows="2"
-                class="composer-input w-full resize-none rounded-xl bg-slate-100 px-3 py-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06] dark:placeholder:text-slate-500"
+                class="composer-input w-full resize-none rounded-xl bg-slate-100 px-fib-3 py-fib-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06] dark:placeholder:text-slate-500"
               ></textarea>
-              <div class="mt-3 flex items-center justify-between">
+              <div class="mt-fib-3 flex items-center justify-between">
                 <div class="flex items-center gap-1 text-neutral-900 dark:text-neutral-300">
                   <button type="button" aria-label="Añadir foto" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Image :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
                   <button type="button" aria-label="Añadir GIF" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Clapperboard :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
@@ -181,7 +181,7 @@ function sharePost() {
                 <button
                   type="button"
                   :disabled="!feed.draft.trim()"
-                  class="type-label rounded-xl bg-neutral-900 px-4 py-[9px] text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
+                  class="type-label rounded-xl bg-neutral-900 px-fib-4 py-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
                   @click="feed.createPost()"
                 >
                   Publicar
@@ -191,13 +191,13 @@ function sharePost() {
           </div>
         </section>
 
-        <div v-if="feed.posts.length" class="space-y-4 pb-20">
-          <article v-for="post in visiblePosts" :key="post.id" class="feed-post group rounded-2xl border border-slate-200 p-4 shadow-sm transition hover:shadow-md dark:border-white/10">
-            <div class="mb-3 flex items-center gap-2">
+        <div v-if="feed.posts.length" class="flex flex-col gap-fib-4 pb-20">
+          <article v-for="post in visiblePosts" :key="post.id" class="feed-post group rounded-2xl border border-slate-200 p-fib-4 shadow-sm transition hover:shadow-md dark:border-white/10">
+            <div class="mb-fib-3 flex items-center gap-fib-2">
               <span class="type-micro rounded-md bg-neutral-700/10 px-2 py-1 uppercase text-neutral-800 dark:text-neutral-300">Comunidad · {{ post.community }}</span>
             </div>
-            <div class="flex gap-3">
-              <span :aria-label="`Avatar de ${post.name}`" role="img" class="type-label flex h-11 w-11 shrink-0 items-center justify-center rounded-full" :class="post.avatarColor">{{ post.avatarInitials }}</span>
+            <div class="flex gap-fib-3">
+              <span :aria-label="`Avatar de ${post.name}`" role="img" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full" :class="post.avatarColor">{{ post.avatarInitials }}</span>
               <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-1 overflow-hidden">
                   <span class="type-label truncate hover:underline">{{ post.name }}</span>
@@ -233,7 +233,7 @@ function sharePost() {
               </div>
             </div>
           </article>
-          <button type="button" class="type-label w-full py-5 text-neutral-900 transition hover:bg-slate-50 dark:hover:bg-white/[0.025]">Mostrar más publicaciones</button>
+          <button type="button" class="type-label w-full py-5 text-neutral-900 transition hover:bg-slate-50 dark:text-neutral-100 dark:hover:bg-white/[0.025]">Mostrar más publicaciones</button>
         </div>
         <div v-else class="px-8 py-16 text-center">
           <h2 class="type-title-1">Tu timeline está empezando</h2>
@@ -244,13 +244,13 @@ function sharePost() {
 
       <!-- Right sidebar -->
       <aside class="hidden min-w-0 lg:block">
-        <div class="sticky top-0 space-y-4 py-4">
+        <div class="sticky top-0 flex flex-col gap-fib-4 py-fib-3">
           <label class="relative block">
             <Search :size="18" :stroke-width="1.8" class="absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-500" aria-hidden="true" />
-            <input type="search" placeholder="Buscar temas o comunidades" class="input-control h-12 w-full rounded-xl border border-slate-200 bg-white pl-11 pr-4 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-neutral-600 dark:border-white/10 dark:bg-[#18181b] dark:focus:border-neutral-600" />
+            <input type="search" placeholder="Buscar temas o comunidades" class="input-control h-fib-6 w-full rounded-xl border border-slate-200 bg-white pl-11 pr-fib-3 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-neutral-600 dark:border-white/10 dark:bg-[#18181b] dark:focus:border-neutral-600" />
           </label>
 
-          <section class="overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-700 p-4 text-white shadow-lg shadow-neutral-950/10">
+          <section class="overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-950 to-neutral-700 p-fib-4 text-white shadow-lg shadow-neutral-950/10">
             <p class="type-micro uppercase text-white/85">Encuentra tu gente</p>
             <h2 class="type-title-2 mt-2">Descubre nuevas comunidades</h2>
             <p class="type-body mt-2 text-white/90">Ideas, aficiones y conversaciones para compartir.</p>
@@ -258,7 +258,7 @@ function sharePost() {
           </section>
 
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-[#18181b]">
-            <div class="px-4 pb-2 pt-4">
+            <div class="px-fib-4 pb-fib-2 pt-fib-4">
               <h2 class="type-title-2">Temas en auge</h2>
               <p class="type-caption mt-1 text-slate-500 dark:text-slate-400">Lo más comentado ahora</p>
             </div>
@@ -267,7 +267,7 @@ function sharePost() {
               { category: 'Tecnología · Ejemplo', topic: 'Diseño accesible', posts: '840 publicaciones' },
               { category: 'Creatividad · Ejemplo', topic: 'Proyectos personales', posts: '620 publicaciones' },
               { category: 'Lecturas · Ejemplo', topic: '#LecturasDeLaSemana', posts: '410 publicaciones' },
-            ]" :key="trend.topic" type="button" class="flex w-full items-start gap-3 px-4 py-3 text-left transition hover:bg-neutral-50/70 dark:hover:bg-white/[0.04]">
+            ]" :key="trend.topic" type="button" class="flex w-full items-start gap-fib-3 px-fib-4 py-fib-3 text-left transition hover:bg-neutral-50/70 dark:hover:bg-white/[0.04]">
               <span class="type-title-2 mt-0.5 w-5" :class="index < 3 ? 'text-neutral-900 dark:text-neutral-300' : 'text-slate-400'">{{ String(index + 1).padStart(2, '0') }}</span>
               <span class="min-w-0 flex-1">
                 <span class="type-micro block uppercase text-slate-500 dark:text-slate-400">{{ trend.category }}</span>
@@ -276,7 +276,7 @@ function sharePost() {
               </span>
               <Ellipsis :size="17" :stroke-width="1.8" class="mt-1 shrink-0 text-slate-400" aria-hidden="true" />
             </button>
-            <button type="button" class="type-label w-full border-t border-slate-100 px-4 py-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Ver todos los temas</button>
+            <button type="button" class="type-label w-full border-t border-slate-100 px-fib-4 py-fib-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Ver todos los temas</button>
           </section>
 
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-[#18181b]">
@@ -285,7 +285,7 @@ function sharePost() {
               { name: 'Club de lectura', handle: '1,8 mil miembros', initials: 'L', color: 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200' },
               { name: 'Diseño cotidiano', handle: '960 miembros', initials: 'D', color: 'bg-zinc-200 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200' },
               { name: 'Rutas y escapadas', handle: '2,4 mil miembros', initials: 'R', color: 'bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200' },
-            ]" :key="person.handle" class="flex items-center gap-2 px-4 py-3 transition hover:bg-slate-100 dark:hover:bg-white/[0.04]">
+            ]" :key="person.handle" class="flex items-center gap-fib-2 px-fib-4 py-fib-3 transition hover:bg-slate-100 dark:hover:bg-white/[0.04]">
               <span aria-hidden="true" class="type-label flex h-10 w-10 items-center justify-center rounded-full" :class="person.color">{{ person.initials }}</span>
               <span class="min-w-0 flex-1">
                 <span class="type-label block truncate">{{ person.name }}</span>
@@ -293,7 +293,7 @@ function sharePost() {
               </span>
               <button type="button" aria-label="Unirse a la comunidad" class="type-caption rounded-lg border border-neutral-200 px-3 py-1.5 text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-600/25 dark:text-neutral-300 dark:hover:bg-neutral-700/10">Unirme</button>
             </div>
-            <button type="button" class="type-label w-full border-t border-slate-100 px-4 py-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Explorar comunidades</button>
+            <button type="button" class="type-label w-full border-t border-slate-100 px-fib-4 py-fib-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Explorar comunidades</button>
           </section>
 
           <footer class="type-caption flex flex-wrap gap-x-3 gap-y-1 px-4 pb-4 text-slate-500 dark:text-slate-500">
@@ -306,11 +306,11 @@ function sharePost() {
       </aside>
     </div>
 
-    <nav aria-label="Navegación móvil" class="fixed inset-x-0 bottom-0 z-30 flex h-[calc(72px+env(safe-area-inset-bottom))] items-center justify-around border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-[#18181b]/95 md:hidden">
-      <a href="/" aria-current="page" class="mobile-nav-item type-micro flex min-w-[64px] flex-col items-center gap-1 rounded-xl px-2 py-1"><House :size="20" :stroke-width="2" class="h-5 w-5" aria-hidden="true" /><span>Inicio</span></a>
-      <button type="button" class="mobile-nav-item type-micro flex min-w-[64px] flex-col items-center gap-1 rounded-xl px-2 py-1"><Search :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Buscar</span></button>
-      <button type="button" class="mobile-nav-item type-micro flex min-w-[64px] flex-col items-center gap-1 rounded-xl px-2 py-1"><Bell :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Novedades</span></button>
-      <button type="button" class="mobile-nav-item type-micro flex min-w-[64px] flex-col items-center gap-1 rounded-xl px-2 py-1"><Mail :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Mensajes</span></button>
+    <nav aria-label="Navegación móvil" class="fixed inset-x-0 bottom-0 z-30 flex h-[calc(89px+env(safe-area-inset-bottom))] items-center justify-around border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-[#18181b]/95 md:hidden">
+      <a href="/" aria-current="page" class="mobile-nav-item type-micro flex min-w-[55px] flex-col items-center gap-fib-1 rounded-xl px-fib-2 py-fib-1"><House :size="20" :stroke-width="2" class="h-5 w-5" aria-hidden="true" /><span>Inicio</span></a>
+      <button type="button" class="mobile-nav-item type-micro flex min-w-[55px] flex-col items-center gap-fib-1 rounded-xl px-fib-2 py-fib-1"><Search :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Buscar</span></button>
+      <button type="button" class="mobile-nav-item type-micro flex min-w-[55px] flex-col items-center gap-fib-1 rounded-xl px-fib-2 py-fib-1"><Bell :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Novedades</span></button>
+      <button type="button" class="mobile-nav-item type-micro flex min-w-[55px] flex-col items-center gap-fib-1 rounded-xl px-fib-2 py-fib-1"><Mail :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Mensajes</span></button>
     </nav>
 
     <div v-if="feed.toast" role="status" class="type-label fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-full bg-neutral-900 px-5 py-3 text-white shadow-lg md:bottom-6">
