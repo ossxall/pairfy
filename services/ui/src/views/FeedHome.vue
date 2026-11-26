@@ -131,7 +131,7 @@ function sharePost() {
             <button
               type="button"
               :aria-label="`Earned ${boundedEarned(post.earnedAda)} ADA`"
-              class="type-micro ml-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] leading-3 font-semibold text-emerald-900 shadow-sm ring-1 ring-emerald-300 transition hover:bg-emerald-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-800 dark:hover:bg-emerald-900"
+              class="type-micro ml-fib-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-emerald-100 px-fib-1 py-0.5 text-[10px] leading-3 font-semibold text-emerald-900 shadow-sm ring-1 ring-emerald-300 transition hover:bg-emerald-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-800 dark:hover:bg-emerald-900"
               @click.stop="feed.showToast(`Earned ${boundedEarned(post.earnedAda)} ADA`)"
             >
               Earned {{ boundedEarned(post.earnedAda) }} ADA
