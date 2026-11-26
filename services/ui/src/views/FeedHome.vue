@@ -32,6 +32,10 @@ function boundedReward(amount: number) {
   return Math.min(Math.max(Math.floor(amount), 0), 1000)
 }
 
+function boundedEarned(amount: number) {
+  return (Number.isFinite(amount) ? Math.min(Math.max(amount, 0), 100) : 0).toFixed(1)
+}
+
 function sharePost() {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(window.location.href)
@@ -120,10 +124,18 @@ function sharePost() {
       <div class="flex gap-fib-3">
         <span :aria-label="`Avatar de ${post.name}`" role="img" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full" :class="post.avatarColor">{{ post.avatarInitials }}</span>
         <div class="min-w-0 flex-1">
-          <div class="flex items-center gap-1 overflow-hidden">
+          <div class="flex min-w-0 flex-wrap items-center gap-1">
             <span class="type-label truncate hover:underline">{{ post.name }}</span>
             <span class="type-caption truncate text-slate-500 dark:text-slate-500">{{ post.handle }}</span>
             <span class="type-caption shrink-0 text-slate-500 dark:text-slate-500">· {{ post.time }}</span>
+            <button
+              type="button"
+              :aria-label="`Earned ${boundedEarned(post.earnedAda)} ADA`"
+              class="type-micro ml-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] leading-3 font-semibold text-emerald-900 shadow-sm ring-1 ring-emerald-300 transition hover:bg-emerald-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-800 dark:hover:bg-emerald-900"
+              @click.stop="feed.showToast(`Earned ${boundedEarned(post.earnedAda)} ADA`)"
+            >
+              Earned {{ boundedEarned(post.earnedAda) }} ADA
+            </button>
             <button type="button" :aria-label="`Más opciones de ${post.name}`" class="ml-auto -mr-2 shrink-0 rounded-full p-2 text-slate-500 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click.stop>
               <Ellipsis :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" />
             </button>
@@ -132,7 +144,7 @@ function sharePost() {
           <div v-if="post.image" class="mt-3 overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10">
             <img :src="post.image" :alt="post.imageAlt" class="feed-post-image w-full object-cover" />
           </div>
-          <div class="type-caption tabular-nums -ml-2 mt-3 flex max-w-[430px] flex-wrap items-center justify-between gap-y-1 text-slate-500 dark:text-slate-500" @click.stop>
+          <div class="type-caption tabular-nums -ml-2 mt-3 flex w-full max-w-[430px] flex-wrap items-center gap-x-1 gap-y-1 text-slate-500 dark:text-slate-500" @click.stop>
             <RouterLink :to="`/post/${post.id}`" :aria-label="`${post.replies} respuestas`" class="group/action flex items-center gap-1.5 transition hover:text-neutral-900" @click.stop>
               <span class="rounded-full p-2 transition group-hover/action:bg-neutral-900/10"><MessageCircleMore :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></span>
               <span>{{ post.replies }}</span>
@@ -146,7 +158,7 @@ function sharePost() {
               <span>{{ post.likes }}</span>
             </button>
             <button type="button" aria-label="Ver estadísticas" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900"><ChartNoAxesColumn :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
-            <div class="flex items-center gap-1">
+            <div class="ml-auto flex min-w-0 max-w-full flex-wrap items-center justify-end gap-1">
               <button type="button" aria-label="Guardar publicación" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" :class="{ 'text-neutral-900': post.bookmarked }" @click="feed.toggleBookmark(post.id)"><Bookmark :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
               <button type="button" aria-label="Compartir publicación" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click="sharePost"><Share2 :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
               <button
@@ -156,7 +168,7 @@ function sharePost() {
                 @click="feed.showToast(`Canje de ${boundedReward(post.adaReward)} ADA seleccionado`)"
               >
                 <Sparkles :size="12" :stroke-width="2.2" aria-hidden="true" />
-                {{ boundedReward(post.adaReward) }} ADA
+                Redeem {{ boundedReward(post.adaReward) }} ADA
               </button>
             </div>
           </div>

@@ -23,6 +23,7 @@ export interface FeedPost {
   time: string
   text: string
   adaReward: number
+  earnedAda: number
   following: boolean
   replies: string
   reposts: number
@@ -45,6 +46,7 @@ const initialPosts: FeedPost[] = [
     time: '12 min',
     text: 'Un buen diseño no pide atención: hace que todo resulte más fácil. ✨',
     adaReward: 1,
+    earnedAda: 1.6,
     following: true,
     replies: '24',
     reposts: 18,
@@ -82,6 +84,7 @@ const initialPosts: FeedPost[] = [
     time: '38 min',
     text: 'Un recordatorio para hoy: descansar también forma parte del camino. 🌿',
     adaReward: 250,
+    earnedAda: 1.6,
     following: true,
     replies: '12',
     reposts: 31,
@@ -121,6 +124,7 @@ const initialPosts: FeedPost[] = [
     time: '1 h',
     text: 'Después de muchas tardes de trabajo, por fin publiqué mi portfolio. Aprendí muchísimo en el proceso. 🚀\n\n¿Qué proyecto personal tienes entre manos?',
     adaReward: 1000,
+    earnedAda: 1.6,
     following: false,
     replies: '8',
     reposts: 6,
@@ -181,6 +185,7 @@ export const useFeedStore = defineStore('feed', {
         time: 'ahora',
         text,
         adaReward: 50,
+        earnedAda: 1.6,
         following: true,
         replies: '0',
         reposts: 0,
