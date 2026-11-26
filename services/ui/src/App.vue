@@ -208,7 +208,7 @@ function sharePost() {
                 <div v-if="post.image" class="mt-3 overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10">
                   <img :src="post.image" :alt="post.imageAlt" class="feed-post-image w-full object-cover" />
                 </div>
-                <div class="type-caption tabular-nums -ml-2 mt-3 flex max-w-[430px] items-center justify-between text-slate-500 dark:text-slate-500">
+                <div class="type-caption tabular-nums -ml-2 mt-3 flex max-w-[430px] flex-wrap items-center justify-between gap-y-1 text-slate-500 dark:text-slate-500">
                   <button type="button" :aria-label="`${post.replies} respuestas`" class="group/action flex items-center gap-1.5 transition hover:text-neutral-900">
                     <span class="rounded-full p-2 transition group-hover/action:bg-neutral-900/10"><MessageCircleMore :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></span>
                     <span>{{ post.replies }}</span>
@@ -223,6 +223,15 @@ function sharePost() {
                   </button>
                   <button type="button" aria-label="Ver estadísticas" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900"><ChartNoAxesColumn :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
                   <div class="flex items-center">
+                    <button
+                      type="button"
+                      :aria-label="`Redeem 50 ADA de la publicación de ${post.name}`"
+                      class="type-micro inline-flex shrink-0 items-center gap-1 rounded-full bg-gradient-to-r from-amber-300 to-yellow-400 px-2 py-1 font-semibold text-amber-950 shadow-sm ring-1 ring-amber-300/80 transition hover:from-amber-200 hover:to-yellow-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:from-amber-300 dark:to-yellow-300"
+                      @click="feed.showToast('Canje de 50 ADA seleccionado')"
+                    >
+                      <Sparkles :size="12" :stroke-width="2.2" aria-hidden="true" />
+                      Redeem 50 ADA
+                    </button>
                     <button type="button" aria-label="Guardar publicación" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" :class="{ 'text-neutral-900': post.bookmarked }" @click="feed.toggleBookmark(post.id)"><Bookmark :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
                     <button type="button" aria-label="Compartir publicación" class="group/action rounded-full p-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click="sharePost"><Share2 :size="18" :stroke-width="1.8" class="h-[18px] w-[18px]" aria-hidden="true" /></button>
                   </div>
