@@ -91,12 +91,12 @@ function addComment() {
         </form>
       </section>
 
-      <section aria-labelledby="comments-heading" class="overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10">
-        <div class="border-b border-slate-200 px-fib-4 py-fib-3 dark:border-white/10">
+      <section aria-labelledby="comments-heading" class="overflow-hidden rounded-2xl border border-slate-200 p-fib-3 dark:border-white/10">
+        <div class="border-b border-slate-200 pb-fib-3 dark:border-white/10">
           <h2 id="comments-heading" class="type-title-2">Comentarios</h2>
         </div>
         <div v-if="post.comments.length" class="divide-y divide-slate-200 dark:divide-white/10">
-          <article v-for="comment in post.comments" :key="comment.id" class="flex gap-fib-3 px-fib-4 py-fib-3">
+          <article v-for="comment in post.comments" :key="comment.id" class="flex gap-fib-3 py-fib-3 last:pb-0">
             <span :aria-label="`Avatar de ${comment.name}`" role="img" class="type-caption flex h-10 w-10 shrink-0 items-center justify-center rounded-full" :class="comment.avatarColor">{{ comment.avatarInitials }}</span>
             <div class="min-w-0 flex-1">
               <div class="flex flex-wrap items-baseline gap-x-2">
@@ -108,7 +108,7 @@ function addComment() {
             </div>
           </article>
         </div>
-        <p v-else class="type-body px-fib-4 py-fib-5 text-slate-500 dark:text-slate-400">
+        <p v-else class="type-body py-fib-3 text-slate-500 dark:text-slate-400">
           Todavía no hay comentarios. ¡Sé la primera persona en responder!
         </p>
       </section>
