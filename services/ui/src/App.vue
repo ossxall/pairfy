@@ -247,10 +247,10 @@ function sharePost() {
             <input type="search" placeholder="Buscar temas o comunidades" class="input-control h-fib-6 w-full rounded-xl border border-slate-200 bg-white pl-11 pr-fib-3 shadow-sm outline-none transition placeholder:text-slate-500 focus:border-neutral-600 dark:border-white/10 dark:bg-[#18181b] dark:focus:border-neutral-600" />
           </label>
 
-          <section class="relative isolate overflow-hidden rounded-2xl bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 p-fib-3 text-white shadow-lg shadow-blue-950/25">
+          <section class="relative isolate overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800 p-fib-3 text-white shadow-lg shadow-neutral-950/20">
             <Sparkles :size="76" :stroke-width="1" class="pointer-events-none absolute -right-3 -top-4 -z-10 rotate-12 text-white/15" aria-hidden="true" />
             <p class="type-micro inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 uppercase text-white/90">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-300" aria-hidden="true"></span>
+              <span class="h-1.5 w-1.5 rounded-full bg-neutral-300" aria-hidden="true"></span>
               Tu próxima conversación
             </p>
             <h2 class="type-title-2 mt-2">Ideas que nos conectan.</h2>
@@ -259,7 +259,7 @@ function sharePost() {
               <span class="type-caption rounded-full border border-white/20 bg-white/10 px-2.5 py-1">🎬 Cine de culto</span>
               <span class="type-caption rounded-full border border-white/20 bg-white/10 px-2.5 py-1">🌱 Huertos urbanos</span>
             </div>
-            <button type="button" class="type-label mt-3 rounded-lg bg-white px-4 py-1.5 text-blue-950 transition hover:bg-blue-50">Encuentra tu comunidad <span aria-hidden="true">→</span></button>
+            <button type="button" class="type-label mt-3 rounded-lg bg-white px-4 py-1.5 text-neutral-900 transition hover:bg-neutral-100">Encuentra tu comunidad <span aria-hidden="true">→</span></button>
           </section>
 
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-[var(--surface-app)] shadow-sm dark:border-white/10">
