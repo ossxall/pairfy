@@ -226,6 +226,73 @@ a {
   color: var(--text-secondary);
 }
 
+.sidebar-panel {
+  isolation: isolate;
+}
+
+.sidebar-nav-active {
+  color: var(--text-primary);
+  background: #f1f1f2;
+}
+
+.dark .sidebar-nav-active {
+  color: #fafafa;
+  background: #27272a;
+}
+
+.pairfy-mark {
+  position: relative;
+  background: #27272a;
+}
+
+.pairfy-mark::before,
+.pairfy-mark::after,
+.pairfy-mark-dot {
+  position: absolute;
+  display: block;
+  content: "";
+  border: 1.5px solid rgb(255 255 255 / 92%);
+  border-radius: 999px;
+}
+
+.pairfy-mark::before {
+  width: 15px;
+  height: 15px;
+  transform: translate(-3px, 0);
+}
+
+.pairfy-mark::after {
+  width: 15px;
+  height: 15px;
+  transform: translate(3px, 0);
+}
+
+.pairfy-mark-dot {
+  z-index: 1;
+  width: 4px;
+  height: 4px;
+  border: 0;
+  background: white;
+}
+
+.sidebar-scroll {
+  scrollbar-color: rgb(148 163 184 / 45%) transparent;
+  scrollbar-width: thin;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgb(148 163 184 / 40%);
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(100 116 139 / 55%);
+}
+
 .mobile-content-clearance {
   padding-bottom: calc(var(--spacing-fib-7) + env(safe-area-inset-bottom));
 }

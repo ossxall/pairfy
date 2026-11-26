@@ -8,11 +8,9 @@ import {
   House,
   Mail,
   Moon,
-  Newspaper,
   Search,
   Sparkles,
   Sun,
-  UserRound,
   UsersRound,
 } from '@lucide/vue'
 import { useFeedStore } from './stores/feed'
@@ -25,13 +23,55 @@ const navItems = computed<{ name: string; icon: Component; active?: boolean; bad
   { name: 'Explorar', icon: Search },
   { name: 'Notificaciones', icon: Bell, badge: '3' },
   { name: 'Mensajes', icon: Mail },
-  { name: 'Artículos', icon: Newspaper },
   { name: 'Guardados', icon: Bookmark },
   { name: 'Comunidades', icon: UsersRound },
-  { name: 'Creadores', icon: Sparkles },
-  { name: 'Perfil', icon: UserRound },
-  { name: 'Más', icon: Ellipsis },
 ])
+const platformGroups = [
+  {
+    name: 'Las más conocidas',
+    platforms: [
+      { name: 'Facebook', mark: 'f' },
+      { name: 'Instagram', mark: 'ig' },
+      { name: 'WhatsApp', mark: 'wa' },
+      { name: 'YouTube', mark: 'yt' },
+      { name: 'TikTok', mark: 'tk' },
+      { name: 'WeChat', mark: 'wc' },
+      { name: 'LinkedIn', mark: 'in' },
+      { name: 'Telegram', mark: 'tg' },
+      { name: 'Snapchat', mark: 'sc' },
+      { name: 'Kuaishou', mark: 'ks' },
+      { name: 'X (Twitter)', mark: 'x' },
+    ],
+  },
+  {
+    name: 'Más plataformas',
+    platforms: [
+      { name: 'Bluesky', mark: 'b' },
+      { name: 'Threads', mark: 'th' },
+      { name: 'Mastodon', mark: 'm' },
+      { name: 'GETTR', mark: 'g' },
+      { name: 'Tumblr', mark: 't' },
+      { name: 'Substack Notes', mark: 'sn' },
+      { name: 'Reddit', mark: 'r' },
+      { name: 'Spill', mark: 'sp' },
+      { name: 'Nostr', mark: 'n' },
+      { name: 'Plurk', mark: 'p' },
+      { name: 'Weibo', mark: 'wb' },
+      { name: 'Parler', mark: 'p' },
+      { name: 'Truth Social', mark: 'ts' },
+      { name: 'Pleroma', mark: 'pl' },
+      { name: 'Diaspora', mark: 'd' },
+      { name: 'Friendica', mark: 'fr' },
+      { name: 'Micro.blog', mark: 'mb' },
+      { name: 'Hive Social', mark: 'h' },
+      { name: 'Farcaster', mark: 'fc' },
+      { name: 'CounterSocial', mark: 'cs' },
+      { name: 'Spoutible', mark: 's' },
+      { name: 'Minds', mark: 'mi' },
+      { name: 'Discord', mark: 'dc' },
+    ],
+  },
+]
 
 onMounted(() => feed.applyTheme())
 </script>
@@ -41,64 +81,102 @@ onMounted(() => feed.applyTheme())
     <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-fib-4 px-fib-3 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,665px)_320px] lg:gap-fib-5">
       <!-- Left navigation -->
       <aside class="hidden md:block">
-        <div class="sticky top-0 flex h-screen flex-col px-fib-1 py-fib-3">
-          <RouterLink to="/" aria-label="Pairfy, inicio" class="mb-fib-4 flex h-fib-6 items-center rounded-xl px-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
-            <span class="type-title-2">Pairfy</span>
-          </RouterLink>
+        <div class="sticky top-0 h-screen py-fib-2">
+          <div class="sidebar-panel flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-white/10 dark:bg-[#111114]">
+            <header class="flex shrink-0 items-center justify-between px-fib-3 pb-fib-3 pt-fib-4">
+              <RouterLink to="/" aria-label="Pairfy, inicio" class="group flex min-w-0 items-center gap-fib-2 rounded-xl">
+                <span class="pairfy-mark flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white" aria-hidden="true">
+                  <span class="pairfy-mark-dot"></span>
+                </span>
+                <span class="min-w-0">
+                  <span class="type-title-2 block leading-none tracking-[-0.04em]">pairfy</span>
+                  <span class="type-micro mt-1 block uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">social space</span>
+                </span>
+              </RouterLink>
+              <button type="button" aria-label="Más opciones" class="rounded-lg p-fib-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-white/10 dark:hover:text-white">
+                <Ellipsis :size="19" :stroke-width="2" aria-hidden="true" />
+              </button>
+            </header>
 
-          <p class="type-micro mb-fib-2 px-fib-3 uppercase text-[var(--color-slate-100)]">Tu espacio</p>
-          <nav aria-label="Navegación principal" class="flex flex-col gap-fib-2">
-            <button
-              v-for="item in navItems"
-              :key="item.name"
-              type="button"
-              class="type-label group flex w-full items-center gap-fib-3 rounded-xl px-fib-3 py-fib-3 text-left text-slate-600 transition hover:bg-white dark:text-slate-100 dark:hover:bg-white/5"
-            >
-              <span class="relative flex h-5 w-5 items-center justify-center">
-                <component :is="item.icon" :size="20" :stroke-width="1.8" aria-hidden="true" />
-                <span v-if="item.badge" class="type-micro absolute -right-2 -top-2 flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-neutral-900 px-fib-1 text-white dark:bg-neutral-200 dark:text-neutral-950">{{ item.badge }}</span>
-              </span>
-              <span :class="item.active ? 'font-bold' : 'font-normal'">{{ item.name }}</span>
-              <span v-if="item.active" class="sr-only">(página actual)</span>
-            </button>
-          </nav>
+            <div class="shrink-0 px-fib-3">
+              <RouterLink to="/" class="type-label group flex w-full items-center justify-center gap-fib-2 rounded-xl bg-neutral-900 px-fib-3 py-[11px] text-white transition hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
+                <Sparkles :size="17" :stroke-width="2" aria-hidden="true" />
+                Crear publicación
+              </RouterLink>
+            </div>
 
-          <button type="button" class="type-label mt-fib-4 w-full rounded-xl bg-neutral-900 py-fib-3 text-white shadow-lg shadow-neutral-950/15 transition hover:bg-neutral-800 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
-            Publicar
-          </button>
+            <nav aria-label="Navegación principal" class="shrink-0 px-fib-2 pb-fib-3 pt-fib-3">
+              <p class="type-micro mb-fib-1 px-fib-2 uppercase tracking-[0.12em] text-slate-500 dark:text-slate-500">Tu espacio</p>
+              <div class="flex flex-col gap-0.5">
+                <button
+                  v-for="item in navItems"
+                  :key="item.name"
+                  type="button"
+                  :aria-current="item.active ? 'page' : undefined"
+                  class="sidebar-nav-item type-label group flex min-h-[37px] w-full items-center gap-fib-2 rounded-[11px] px-fib-2 text-left text-slate-600 transition hover:bg-slate-100/90 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/[0.07] dark:hover:text-white"
+                  :class="{ 'sidebar-nav-active': item.active }"
+                >
+                  <span class="relative flex h-5 w-5 shrink-0 items-center justify-center">
+                    <component :is="item.icon" :size="18" :stroke-width="item.active ? 2.1 : 1.8" aria-hidden="true" />
+                    <span v-if="item.badge" class="type-micro absolute -right-2 -top-2 flex h-[15px] min-w-[15px] items-center justify-center rounded-full bg-neutral-700 px-1 text-white ring-2 ring-white dark:bg-neutral-300 dark:text-neutral-950 dark:ring-[#111114]">{{ item.badge }}</span>
+                  </span>
+                  <span class="truncate" :class="item.active ? 'font-semibold' : 'font-medium'">{{ item.name }}</span>
+                  <span v-if="item.active" class="sr-only">(página actual)</span>
+                  <span v-if="item.active" class="ml-auto h-1.5 w-1.5 rounded-full bg-neutral-500 dark:bg-neutral-400" aria-hidden="true"></span>
+                </button>
+              </div>
+            </nav>
 
-          <div class="mt-auto space-y-fib-3 pb-fib-2">
-            <div class="rounded-2xl border border-slate-200 bg-[var(--surface-app)] p-fib-3 shadow-sm dark:border-white/10">
-              <div class="grid grid-cols-2 gap-fib-2">
+            <section aria-label="Directorio de redes sociales" class="sidebar-scroll min-h-0 flex-1 overflow-y-auto border-t border-slate-100 px-fib-3 pb-fib-3 dark:border-white/[0.07]">
+              <div class="sticky top-0 z-10 -mx-fib-3 flex items-center justify-between bg-white/95 px-fib-3 pb-fib-2 pt-fib-3 backdrop-blur dark:bg-[#111114]/95">
+                <div>
+                  <h2 class="type-label">Panorama social</h2>
+                  <p class="type-micro mt-0.5 text-slate-500 dark:text-slate-400">Un mundo de conversaciones</p>
+                </div>
+                <span class="type-micro rounded-full bg-slate-100 px-2 py-1 text-slate-600 dark:bg-white/[0.08] dark:text-slate-300">34 redes</span>
+              </div>
+
+              <div v-for="group in platformGroups" :key="group.name" class="mt-fib-2">
+                <h3 class="type-micro mb-1 px-1 uppercase tracking-[0.1em] text-slate-400 dark:text-slate-500">{{ group.name }}</h3>
+                <ul class="flex flex-col gap-px">
+                  <li v-for="platform in group.platforms" :key="platform.name" class="flex min-h-[29px] items-center gap-fib-2 rounded-lg px-1.5 py-1 transition hover:bg-slate-100 dark:hover:bg-white/[0.06]">
+                    <span class="network-mark type-micro flex h-[21px] w-[21px] shrink-0 items-center justify-center rounded-md bg-slate-100 font-semibold text-slate-600 dark:bg-white/[0.08] dark:text-slate-300" aria-hidden="true">{{ platform.mark }}</span>
+                    <span class="type-caption min-w-0 truncate text-slate-600 dark:text-slate-300">{{ platform.name }}</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <footer class="shrink-0 border-t border-slate-100 px-fib-3 pb-fib-2 pt-fib-2 dark:border-white/[0.07]">
+              <div class="mb-fib-1 grid grid-cols-2 gap-fib-1">
                 <button
                   type="button"
                   :aria-pressed="feed.theme === 'light'"
-                  class="type-caption flex items-center justify-center gap-fib-2 rounded-lg border border-slate-200 px-fib-2 py-fib-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
+                  class="type-caption flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 text-slate-500 transition hover:bg-slate-100 aria-pressed:bg-slate-100 aria-pressed:text-slate-900 dark:text-slate-400 dark:hover:bg-white/[0.07] dark:aria-pressed:bg-white/10 dark:aria-pressed:text-white"
                   @click="feed.setTheme('light')"
                 >
-                  <Sun :size="16" :stroke-width="1.8" class="h-4 w-4" aria-hidden="true" />
+                  <Sun :size="15" :stroke-width="1.8" aria-hidden="true" />
                   Claro
                 </button>
                 <button
                   type="button"
                   :aria-pressed="feed.theme === 'dark'"
-                  class="type-caption flex items-center justify-center gap-fib-2 rounded-lg border border-slate-200 px-fib-2 py-fib-2 transition hover:bg-slate-100 aria-pressed:border-neutral-700 aria-pressed:text-neutral-800 dark:border-white/15 dark:hover:bg-white/10 dark:aria-pressed:bg-neutral-700/50 dark:aria-pressed:text-neutral-100"
+                  class="type-caption flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 text-slate-500 transition hover:bg-slate-100 aria-pressed:bg-slate-100 aria-pressed:text-slate-900 dark:text-slate-400 dark:hover:bg-white/[0.07] dark:aria-pressed:bg-white/10 dark:aria-pressed:text-white"
                   @click="feed.setTheme('dark')"
                 >
-                  <Moon :size="16" :stroke-width="1.8" class="h-4 w-4" aria-hidden="true" />
+                  <Moon :size="15" :stroke-width="1.8" aria-hidden="true" />
                   Oscuro
                 </button>
               </div>
-            </div>
-
-            <button type="button" class="flex w-full items-center gap-fib-3 rounded-xl p-fib-2 text-left transition hover:bg-white dark:hover:bg-white/5">
-              <span aria-hidden="true" class="type-caption flex h-fib-5 w-fib-5 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
-              <span class="min-w-0 flex-1">
-                <span class="type-label block truncate">Mi perfil demo</span>
-                <span class="type-caption block truncate text-slate-500 dark:text-slate-400">@mi_perfil_demo</span>
-              </span>
-              <Ellipsis :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" />
-            </button>
+              <button type="button" class="flex w-full items-center gap-fib-2 rounded-xl p-fib-1 text-left transition hover:bg-slate-100/80 dark:hover:bg-white/[0.06]">
+                <span aria-hidden="true" class="type-caption flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-200 font-semibold text-slate-700 dark:bg-neutral-700 dark:text-slate-200">MD</span>
+                <span class="min-w-0 flex-1">
+                  <span class="type-caption block truncate font-semibold">Mi perfil demo</span>
+                  <span class="type-micro block truncate text-slate-500 dark:text-slate-400">@mi_perfil_demo</span>
+                </span>
+                <Ellipsis :size="17" :stroke-width="1.8" class="shrink-0 text-slate-500" aria-hidden="true" />
+              </button>
+            </footer>
           </div>
         </div>
       </aside>

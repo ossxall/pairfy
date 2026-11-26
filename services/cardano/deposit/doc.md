@@ -10,6 +10,9 @@ DepositDatum {
   unlock_time: deposit_timestamp + 7_776_000_000,
 }
 
+Bloquear todo tipo de transaccion para retirar los fondos.
+Contrato caja negra medida de seguridad.
+
 FASE 1 — Depósitos
 - Usuario 1 deposita 10 ADA.
 - Usuario 2 deposita 25 ADA.
