@@ -13,7 +13,7 @@ mantener legibilidad y una separación clara entre roles.
 | `body-lg` | 18 / 26 px (`1.125 / 1.625rem`) | 400 | `-0.01em` | Texto de una publicación en detalle |
 | `body` | 15 / 22 px (`0.9375 / 1.375rem`) | 400 | `-0.009em` | Un buen diseño no pide atención. |
 | `label` | 15 / 20 px (`0.9375 / 1.25rem`) | 600 | `-0.009em` | Lucía Martín · Para ti |
-| `caption` | 12 / 17 px (`0.75 / 1.0625rem`) | 400 | `-0.003em` | `@lucia.martin · 12 min` |
+| `caption` | 13 / 18 px (`0.8125 / 1.125rem`) | 400 | `-0.003em` | `@lucia.martin · 12 min` |
 | `micro` | 11 / 14 px (`0.6875 / 0.875rem`) | 500 | `+0.008em` | COMUNIDAD · DISEÑO |
 
 Los contadores usan `font-variant-numeric: tabular-nums`. Los campos de entrada
