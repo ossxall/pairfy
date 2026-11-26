@@ -73,7 +73,7 @@ function addComment() {
         </div>
       </article>
 
-      <section aria-label="Responder a la publicación" class="composer-card my-fib-3 rounded-2xl border border-slate-200 p-fib-3 shadow-sm dark:border-white/10">
+      <section aria-label="Responder a la publicación" class="composer-card my-fib-3 rounded-2xl border border-slate-200 p-fib-4 shadow-sm dark:border-white/10">
         <form class="flex items-center gap-fib-3" @submit.prevent="addComment">
           <span aria-label="Avatar de Mi perfil demo" role="img" class="type-caption flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
           <label class="min-w-0 flex-1">
@@ -91,7 +91,7 @@ function addComment() {
         </form>
       </section>
 
-      <section aria-labelledby="comments-heading" class="overflow-hidden rounded-2xl border border-slate-200 p-fib-3 dark:border-white/10">
+      <section aria-labelledby="comments-heading" class="overflow-hidden rounded-2xl border border-slate-200 p-fib-4 dark:border-white/10">
         <div class="border-b border-slate-200 pb-fib-3 dark:border-white/10">
           <h2 id="comments-heading" class="type-title-2">Comentarios</h2>
         </div>
