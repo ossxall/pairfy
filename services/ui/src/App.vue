@@ -48,20 +48,19 @@ onMounted(() => feed.applyTheme())
             <span class="type-title-2">Pairfy</span>
           </RouterLink>
 
-          <p class="type-micro mb-2 px-3 uppercase text-slate-400">Tu espacio</p>
+          <p class="type-micro mb-2 px-3 uppercase text-[var(--color-slate-100)]">Tu espacio</p>
           <nav aria-label="Navegación principal" class="flex flex-col gap-fib-2">
             <button
               v-for="item in navItems"
               :key="item.name"
               type="button"
-              class="type-label group flex w-full items-center gap-fib-3 rounded-xl px-fib-3 py-fib-3 text-left transition hover:bg-white dark:hover:bg-white/5"
-              :class="item.active ? 'bg-neutral-900 text-white shadow-md shadow-neutral-950/10 hover:bg-neutral-800 dark:bg-neutral-700 dark:hover:bg-neutral-600' : 'text-slate-600 dark:text-slate-300'"
+              class="type-label group flex w-full items-center gap-fib-3 rounded-xl px-fib-3 py-fib-3 text-left text-slate-600 transition hover:bg-white dark:text-slate-100 dark:hover:bg-white/5"
             >
               <span class="relative flex h-5 w-5 items-center justify-center">
-                <component :is="item.icon" :size="20" :stroke-width="item.active ? 2.2 : 1.8" aria-hidden="true" />
+                <component :is="item.icon" :size="20" :stroke-width="1.8" aria-hidden="true" />
                 <span v-if="item.badge" class="type-micro absolute -right-2 -top-2 flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-neutral-900 px-1 text-white dark:bg-neutral-200 dark:text-neutral-950">{{ item.badge }}</span>
               </span>
-              <span :class="item.active ? 'font-bold' : 'font-medium'">{{ item.name }}</span>
+              <span :class="item.active ? 'font-bold' : 'font-normal'">{{ item.name }}</span>
               <span v-if="item.active" class="sr-only">(página actual)</span>
             </button>
           </nav>
