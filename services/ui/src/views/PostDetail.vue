@@ -50,22 +50,22 @@ function addComment() {
         <div class="flex gap-fib-3">
           <span :aria-label="`Avatar de ${post.name}`" role="img" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full" :class="post.avatarColor">{{ post.avatarInitials }}</span>
           <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-1">
+            <div class="flex min-w-0 flex-wrap items-center gap-fib-1">
               <span class="type-label truncate">{{ post.name }}</span>
               <span class="type-caption truncate text-slate-500 dark:text-slate-400">{{ post.handle }}</span>
               <span class="type-caption shrink-0 text-slate-500 dark:text-slate-400">· {{ post.time }}</span>
             </div>
-            <p class="type-body mt-2 whitespace-pre-line">{{ post.text }}</p>
-            <div v-if="post.image" class="mt-3 overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10">
+            <p class="type-body mt-fib-2 whitespace-pre-line">{{ post.text }}</p>
+            <div v-if="post.image" class="mt-fib-3 overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10">
               <img :src="post.image" :alt="post.imageAlt" class="feed-post-image w-full object-cover" />
             </div>
-            <div class="type-caption mt-4 flex items-center gap-fib-4 border-b border-slate-200 pb-fib-3 text-slate-500 dark:border-white/10 dark:text-slate-400">
-              <span class="inline-flex items-center gap-2">
-                <MessageCircleMore :size="17" :stroke-width="1.8" aria-hidden="true" />
+            <div class="type-caption mt-fib-4 flex flex-wrap items-center gap-fib-4 border-b border-slate-200 pb-fib-3 text-slate-500 dark:border-white/10 dark:text-slate-400">
+              <span class="inline-flex items-center gap-fib-2">
+                <MessageCircleMore :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
                 {{ post.replies }} respuestas
               </span>
-              <span class="inline-flex items-center gap-2">
-                <Heart :size="17" :stroke-width="1.8" aria-hidden="true" />
+              <span class="inline-flex items-center gap-fib-2">
+                <Heart :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
                 {{ post.likes }} Me gusta
               </span>
             </div>
@@ -75,18 +75,18 @@ function addComment() {
 
       <section aria-label="Responder a la publicación" class="composer-card my-fib-3 rounded-2xl border border-slate-200 p-fib-4 shadow-sm dark:border-white/10">
         <form class="flex items-center gap-fib-3" @submit.prevent="addComment">
-          <span aria-label="Avatar de Mi perfil demo" role="img" class="type-caption flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
+          <span aria-label="Avatar de Mi perfil demo" role="img" class="type-caption flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
           <label class="min-w-0 flex-1">
             <span class="sr-only">Escribe una respuesta</span>
             <input
               v-model="replyDraft"
               type="text"
               placeholder="Escribe tu respuesta"
-              class="input-control w-full rounded-xl bg-slate-100 px-fib-3 py-2.5 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06]"
+              class="input-control w-full rounded-xl bg-slate-100 px-fib-3 py-fib-2 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06]"
             />
           </label>
-          <button type="submit" :disabled="!replyDraft.trim()" aria-label="Publicar respuesta" class="rounded-xl bg-neutral-900 p-2.5 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
-            <Send :size="18" :stroke-width="1.8" aria-hidden="true" />
+          <button type="submit" :disabled="!replyDraft.trim()" aria-label="Publicar respuesta" class="rounded-xl bg-neutral-900 p-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
+            <Send :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
           </button>
         </form>
       </section>
@@ -97,14 +97,14 @@ function addComment() {
         </div>
         <div v-if="post.comments.length" class="divide-y divide-slate-200 dark:divide-white/10">
           <article v-for="comment in post.comments" :key="comment.id" class="flex gap-fib-3 py-fib-3 last:pb-0">
-            <span :aria-label="`Avatar de ${comment.name}`" role="img" class="type-caption flex h-10 w-10 shrink-0 items-center justify-center rounded-full" :class="comment.avatarColor">{{ comment.avatarInitials }}</span>
+            <span :aria-label="`Avatar de ${comment.name}`" role="img" class="type-caption flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full" :class="comment.avatarColor">{{ comment.avatarInitials }}</span>
             <div class="min-w-0 flex-1">
-              <div class="flex flex-wrap items-baseline gap-x-2">
+              <div class="flex flex-wrap items-baseline gap-x-fib-2">
                 <span class="type-label">{{ comment.name }}</span>
                 <span class="type-caption text-slate-500 dark:text-slate-400">{{ comment.handle }}</span>
                 <span class="type-caption text-slate-500 dark:text-slate-400">· {{ comment.time }}</span>
               </div>
-              <p class="type-body mt-1 whitespace-pre-line">{{ comment.text }}</p>
+              <p class="type-body mt-fib-1 whitespace-pre-line">{{ comment.text }}</p>
             </div>
           </article>
         </div>
