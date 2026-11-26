@@ -212,13 +212,12 @@ onMounted(() => feed.applyTheme())
               <h2 class="type-title-2">Temas en auge</h2>
               <p class="type-caption mt-fib-1 text-slate-500 dark:text-slate-400">Lo más comentado ahora</p>
             </div>
-            <button v-for="(trend, index) in [
+            <button v-for="trend in [
               { category: 'Comunidad · Ejemplo', topic: '#IdeasParaHoy', posts: '1,2 mil publicaciones' },
               { category: 'Tecnología · Ejemplo', topic: 'Diseño accesible', posts: '840 publicaciones' },
               { category: 'Creatividad · Ejemplo', topic: 'Proyectos personales', posts: '620 publicaciones' },
               { category: 'Lecturas · Ejemplo', topic: '#LecturasDeLaSemana', posts: '410 publicaciones' },
             ]" :key="trend.topic" type="button" class="flex w-full items-start gap-fib-3 px-fib-4 py-fib-3 text-left transition hover:bg-neutral-50/70 dark:hover:bg-white/[0.04]">
-              <span class="type-title-2 mt-fib-1 w-fib-4" :class="index < 3 ? 'text-neutral-900 dark:text-neutral-300' : 'text-slate-400'">{{ String(index + 1).padStart(2, '0') }}</span>
               <span class="min-w-0 flex-1">
                 <span class="type-micro block uppercase text-slate-500 dark:text-slate-400">{{ trend.category }}</span>
                 <span class="type-label mt-fib-1 block">{{ trend.topic }}</span>
