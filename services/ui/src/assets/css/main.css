@@ -226,6 +226,10 @@ a {
   color: var(--text-secondary);
 }
 
+.mobile-content-clearance {
+  padding-bottom: calc(var(--spacing-fib-7) + env(safe-area-inset-bottom));
+}
+
 .mobile-nav-item[aria-current="page"] {
   color: var(--accent);
 }

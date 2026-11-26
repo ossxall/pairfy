@@ -34,9 +34,9 @@ function addComment() {
 </script>
 
 <template>
-  <div class="pb-20">
-    <header class="sticky top-0 z-20 flex h-fib-7 items-center gap-fib-3 bg-[#f4f4f5]/85 px-1 backdrop-blur-md dark:bg-[#09090b]/85">
-      <RouterLink to="/" aria-label="Volver al feed" class="rounded-full p-2 transition hover:bg-neutral-900/10 dark:hover:bg-white/10">
+  <div>
+    <header class="sticky top-0 z-20 flex h-fib-7 items-center gap-fib-3 bg-[#f4f4f5]/85 px-fib-1 backdrop-blur-md dark:bg-[#09090b]/85">
+      <RouterLink to="/" aria-label="Volver al feed" class="rounded-full p-fib-3 transition hover:bg-neutral-900/10 dark:hover:bg-white/10">
         <ArrowLeft :size="20" :stroke-width="1.8" aria-hidden="true" />
       </RouterLink>
       <div>
@@ -82,10 +82,10 @@ function addComment() {
               v-model="replyDraft"
               type="text"
               placeholder="Escribe tu respuesta"
-              class="input-control w-full rounded-xl bg-slate-100 px-fib-3 py-fib-2 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06]"
+              class="input-control w-full rounded-xl bg-slate-100 px-fib-3 py-fib-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06]"
             />
           </label>
-          <button type="submit" :disabled="!replyDraft.trim()" aria-label="Publicar respuesta" class="rounded-xl bg-neutral-900 p-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
+          <button type="submit" :disabled="!replyDraft.trim()" aria-label="Publicar respuesta" class="rounded-xl bg-neutral-900 p-fib-3 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300">
             <Send :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
           </button>
         </form>
@@ -116,8 +116,8 @@ function addComment() {
 
     <section v-else class="rounded-2xl border border-slate-200 px-fib-4 py-fib-5 text-center dark:border-white/10">
       <h2 class="type-title-2">No encontramos esta publicación</h2>
-      <p class="type-body mt-2 text-slate-500 dark:text-slate-400">Puede que se haya eliminado o que el enlace no sea válido.</p>
-      <RouterLink to="/" class="type-label mt-fib-3 inline-flex rounded-xl bg-neutral-900 px-fib-4 py-fib-2 text-white dark:bg-neutral-200 dark:text-neutral-950">
+      <p class="type-body mt-fib-2 text-slate-500 dark:text-slate-400">Puede que se haya eliminado o que el enlace no sea válido.</p>
+      <RouterLink to="/" class="type-label mt-fib-3 inline-flex rounded-xl bg-neutral-900 px-fib-4 py-fib-3 text-white dark:bg-neutral-200 dark:text-neutral-950">
         Volver al feed
       </RouterLink>
     </section>

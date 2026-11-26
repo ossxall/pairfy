@@ -48,12 +48,12 @@ function sharePost() {
 
 <template>
   <header class="sticky top-0 z-20 bg-[#f4f4f5]/70 backdrop-blur-md dark:bg-[#09090b]/70">
-    <div class="flex h-fib-7 items-center justify-between px-1">
+    <div class="flex h-fib-7 items-center justify-between px-fib-1">
       <div>
         <p class="type-micro uppercase text-neutral-900 dark:text-neutral-300">PAIRFY · COMUNIDAD</p>
-        <h1 class="type-title-1 mt-0.5">Tu inicio</h1>
+        <h1 class="type-title-1 mt-fib-1">Tu inicio</h1>
       </div>
-      <button type="button" aria-label="Destacados" class="rounded-xl p-2.5 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
+      <button type="button" aria-label="Destacados" class="rounded-xl p-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
         <Sparkles :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" />
       </button>
     </div>
@@ -81,7 +81,7 @@ function sharePost() {
     <div class="flex gap-fib-3">
       <span aria-label="Avatar de Mi perfil demo" role="img" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
       <div class="min-w-0 flex-1">
-        <p class="type-label mb-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
+        <p class="type-label mb-fib-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
         <textarea
           v-model="feed.draft"
           aria-label="Comparte algo con tu comunidad"
@@ -89,18 +89,18 @@ function sharePost() {
           rows="2"
           class="composer-input w-full resize-none rounded-xl bg-slate-100 px-fib-3 py-fib-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06] dark:placeholder:text-slate-500"
         ></textarea>
-        <div class="mt-fib-3 flex items-center justify-between">
-          <div class="flex items-center gap-1 text-neutral-900 dark:text-neutral-300">
-            <button type="button" aria-label="Añadir foto" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Image :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-            <button type="button" aria-label="Añadir GIF" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Clapperboard :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-            <button type="button" aria-label="Añadir encuesta" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><List :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-            <button type="button" aria-label="Añadir emoji" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Sticker :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-            <button type="button" aria-label="Programar publicación" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><CalendarClock :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+        <div class="mt-fib-3 flex flex-wrap items-center justify-between gap-fib-2">
+          <div class="flex flex-wrap items-center gap-fib-1 text-neutral-900 dark:text-neutral-300">
+            <button type="button" aria-label="Añadir foto" class="shrink-0 rounded-lg p-fib-3 transition hover:bg-neutral-700/10"><Image :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+            <button type="button" aria-label="Añadir GIF" class="shrink-0 rounded-lg p-fib-3 transition hover:bg-neutral-700/10"><Clapperboard :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+            <button type="button" aria-label="Añadir encuesta" class="shrink-0 rounded-lg p-fib-3 transition hover:bg-neutral-700/10"><List :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+            <button type="button" aria-label="Añadir emoji" class="shrink-0 rounded-lg p-fib-3 transition hover:bg-neutral-700/10"><Sticker :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+            <button type="button" aria-label="Programar publicación" class="shrink-0 rounded-lg p-fib-3 transition hover:bg-neutral-700/10"><CalendarClock :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
           </div>
           <button
             type="button"
             :disabled="!feed.draft.trim()"
-            class="type-label rounded-xl bg-neutral-900 px-fib-4 py-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
+            class="type-label ml-auto rounded-xl bg-neutral-900 px-fib-3 py-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
             @click="feed.createPost()"
           >
             Publicar
@@ -110,7 +110,7 @@ function sharePost() {
     </div>
   </section>
 
-  <div v-if="feed.posts.length" class="flex flex-col gap-fib-4 pb-20">
+  <div v-if="feed.posts.length" class="flex flex-col gap-fib-4">
     <article
       v-for="post in visiblePosts"
       :key="post.id"
@@ -136,7 +136,7 @@ function sharePost() {
             >
               Earned {{ boundedEarned(post.earnedAda) }} ADA
             </button>
-            <button type="button" :aria-label="`Más opciones de ${post.name}`" class="ml-auto -mr-fib-2 shrink-0 rounded-full p-fib-2 text-slate-500 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click.stop>
+            <button type="button" :aria-label="`Más opciones de ${post.name}`" class="ml-auto -mr-fib-3 shrink-0 rounded-full p-fib-3 text-slate-500 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click.stop>
               <Ellipsis :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
             </button>
           </div>
@@ -146,21 +146,21 @@ function sharePost() {
           </div>
           <div class="type-caption tabular-nums -ml-fib-2 mt-fib-3 flex w-full flex-wrap items-center gap-x-fib-1 gap-y-fib-1 text-slate-500 dark:text-slate-500" @click.stop>
             <RouterLink :to="`/post/${post.id}`" :aria-label="`${post.replies} respuestas`" class="group/action flex items-center gap-fib-2 transition hover:text-neutral-900" @click.stop>
-              <span class="rounded-full p-fib-2 transition group-hover/action:bg-neutral-900/10"><MessageCircleMore :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
+              <span class="rounded-full p-fib-3 transition group-hover/action:bg-neutral-900/10"><MessageCircleMore :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
               <span>{{ post.replies }}</span>
             </RouterLink>
             <button type="button" :aria-label="`${post.reposts} reposts`" class="group/action flex items-center gap-fib-2 transition hover:text-neutral-700 dark:hover:text-neutral-200" @click="feed.toggleRepost(post.id)">
-              <span class="rounded-full p-fib-2 transition group-hover/action:bg-neutral-500/10"><Repeat2 :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
+              <span class="rounded-full p-fib-3 transition group-hover/action:bg-neutral-500/10"><Repeat2 :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
               <span>{{ post.reposts }}</span>
             </button>
             <button type="button" :aria-label="`${post.likes} Me gusta`" class="group/action flex items-center gap-fib-2 transition" :class="post.liked ? 'text-neutral-950 dark:text-white' : 'hover:text-neutral-900 dark:hover:text-white'" @click="feed.toggleLike(post.id)">
-              <span class="rounded-full p-fib-2 transition group-hover/action:bg-neutral-500/10"><Heart :size="21" :stroke-width="1.8" :fill="post.liked ? 'currentColor' : 'none'" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
+              <span class="rounded-full p-fib-3 transition group-hover/action:bg-neutral-500/10"><Heart :size="21" :stroke-width="1.8" :fill="post.liked ? 'currentColor' : 'none'" class="h-fib-4 w-fib-4" aria-hidden="true" /></span>
               <span>{{ post.likes }}</span>
             </button>
-            <button type="button" aria-label="Ver estadísticas" class="group/action rounded-full p-fib-2 transition hover:bg-neutral-900/10 hover:text-neutral-900"><ChartNoAxesColumn :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
+            <button type="button" aria-label="Ver estadísticas" class="group/action rounded-full p-fib-3 transition hover:bg-neutral-900/10 hover:text-neutral-900"><ChartNoAxesColumn :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
             <div class="ml-auto flex min-w-0 max-w-full flex-wrap items-center justify-end gap-fib-1">
-              <button type="button" aria-label="Guardar publicación" class="group/action rounded-full p-fib-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" :class="{ 'text-neutral-900': post.bookmarked }" @click="feed.toggleBookmark(post.id)"><Bookmark :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
-              <button type="button" aria-label="Compartir publicación" class="group/action rounded-full p-fib-2 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click="sharePost"><Share2 :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
+              <button type="button" aria-label="Guardar publicación" class="group/action rounded-full p-fib-3 transition hover:bg-neutral-900/10 hover:text-neutral-900" :class="{ 'text-neutral-900': post.bookmarked }" @click="feed.toggleBookmark(post.id)"><Bookmark :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
+              <button type="button" aria-label="Compartir publicación" class="group/action rounded-full p-fib-3 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click="sharePost"><Share2 :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" /></button>
               <button
                 type="button"
                 :aria-label="`Redeem ${boundedReward(post.adaReward)} ADA de la publicación de ${post.name}`"
@@ -176,9 +176,9 @@ function sharePost() {
       </div>
     </article>
   </div>
-  <div v-else class="px-8 py-16 text-center">
+  <div v-else class="px-fib-4 py-fib-6 text-center">
     <h2 class="type-title-1">Tu timeline está empezando</h2>
-    <p class="type-body mt-2 text-slate-500 dark:text-slate-400">Sigue algunas cuentas para ver sus publicaciones aquí.</p>
-    <button type="button" class="type-label mt-5 rounded-xl bg-neutral-900 px-5 py-2.5 text-white dark:bg-neutral-200 dark:text-neutral-950" @click="feed.activeTab = 'for-you'">Explorar publicaciones</button>
+    <p class="type-body mt-fib-2 text-slate-500 dark:text-slate-400">Sigue algunas cuentas para ver sus publicaciones aquí.</p>
+    <button type="button" class="type-label mt-fib-4 rounded-xl bg-neutral-900 px-fib-4 py-fib-3 text-white dark:bg-neutral-200 dark:text-neutral-950" @click="feed.activeTab = 'for-you'">Explorar publicaciones</button>
   </div>
 </template>

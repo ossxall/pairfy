@@ -41,12 +41,12 @@ onMounted(() => feed.applyTheme())
     <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-fib-4 px-fib-3 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,665px)_320px] lg:gap-fib-5">
       <!-- Left navigation -->
       <aside class="hidden md:block">
-        <div class="sticky top-0 flex h-screen flex-col px-1 py-fib-3">
+        <div class="sticky top-0 flex h-screen flex-col px-fib-1 py-fib-3">
           <RouterLink to="/" aria-label="Pairfy, inicio" class="mb-fib-4 flex h-fib-6 items-center rounded-xl px-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
             <span class="type-title-2">Pairfy</span>
           </RouterLink>
 
-          <p class="type-micro mb-2 px-3 uppercase text-[var(--color-slate-100)]">Tu espacio</p>
+          <p class="type-micro mb-fib-2 px-fib-3 uppercase text-[var(--color-slate-100)]">Tu espacio</p>
           <nav aria-label="Navegación principal" class="flex flex-col gap-fib-2">
             <button
               v-for="item in navItems"
@@ -56,7 +56,7 @@ onMounted(() => feed.applyTheme())
             >
               <span class="relative flex h-5 w-5 items-center justify-center">
                 <component :is="item.icon" :size="20" :stroke-width="1.8" aria-hidden="true" />
-                <span v-if="item.badge" class="type-micro absolute -right-2 -top-2 flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-neutral-900 px-1 text-white dark:bg-neutral-200 dark:text-neutral-950">{{ item.badge }}</span>
+                <span v-if="item.badge" class="type-micro absolute -right-2 -top-2 flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-neutral-900 px-fib-1 text-white dark:bg-neutral-200 dark:text-neutral-950">{{ item.badge }}</span>
               </span>
               <span :class="item.active ? 'font-bold' : 'font-normal'">{{ item.name }}</span>
               <span v-if="item.active" class="sr-only">(página actual)</span>
@@ -104,7 +104,7 @@ onMounted(() => feed.applyTheme())
       </aside>
 
       <!-- Feed -->
-      <main class="min-h-screen min-w-0 w-full pb-20">
+      <main class="mobile-content-clearance min-h-screen min-w-0 w-full">
         <RouterView />
       </main>
 
@@ -134,7 +134,7 @@ onMounted(() => feed.applyTheme())
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-[var(--surface-app)] shadow-sm dark:border-white/10">
             <div class="px-fib-4 pb-fib-2 pt-fib-4">
               <h2 class="type-title-2">Temas en auge</h2>
-              <p class="type-caption mt-1 text-slate-500 dark:text-slate-400">Lo más comentado ahora</p>
+              <p class="type-caption mt-fib-1 text-slate-500 dark:text-slate-400">Lo más comentado ahora</p>
             </div>
             <button v-for="(trend, index) in [
               { category: 'Comunidad · Ejemplo', topic: '#IdeasParaHoy', posts: '1,2 mil publicaciones' },
@@ -142,35 +142,35 @@ onMounted(() => feed.applyTheme())
               { category: 'Creatividad · Ejemplo', topic: 'Proyectos personales', posts: '620 publicaciones' },
               { category: 'Lecturas · Ejemplo', topic: '#LecturasDeLaSemana', posts: '410 publicaciones' },
             ]" :key="trend.topic" type="button" class="flex w-full items-start gap-fib-3 px-fib-4 py-fib-3 text-left transition hover:bg-neutral-50/70 dark:hover:bg-white/[0.04]">
-              <span class="type-title-2 mt-0.5 w-5" :class="index < 3 ? 'text-neutral-900 dark:text-neutral-300' : 'text-slate-400'">{{ String(index + 1).padStart(2, '0') }}</span>
+              <span class="type-title-2 mt-fib-1 w-fib-4" :class="index < 3 ? 'text-neutral-900 dark:text-neutral-300' : 'text-slate-400'">{{ String(index + 1).padStart(2, '0') }}</span>
               <span class="min-w-0 flex-1">
                 <span class="type-micro block uppercase text-slate-500 dark:text-slate-400">{{ trend.category }}</span>
-                <span class="type-label mt-1 block">{{ trend.topic }}</span>
-                <span class="type-caption mt-1 block text-slate-500 dark:text-slate-500">{{ trend.posts }}</span>
+                <span class="type-label mt-fib-1 block">{{ trend.topic }}</span>
+                <span class="type-caption mt-fib-1 block text-slate-500 dark:text-slate-500">{{ trend.posts }}</span>
               </span>
-              <Ellipsis :size="17" :stroke-width="1.8" class="mt-1 shrink-0 text-slate-400" aria-hidden="true" />
+              <Ellipsis :size="17" :stroke-width="1.8" class="mt-fib-1 shrink-0 text-slate-400" aria-hidden="true" />
             </button>
             <button type="button" class="type-label w-full border-t border-slate-100 px-fib-4 py-fib-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Ver todos los temas</button>
           </section>
 
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-[var(--surface-app)] shadow-sm dark:border-white/10">
-            <h2 class="type-title-2 px-4 pb-2 pt-4">Comunidades para ti</h2>
+            <h2 class="type-title-2 px-fib-4 pb-fib-2 pt-fib-4">Comunidades para ti</h2>
             <div v-for="person in [
               { name: 'Club de lectura', handle: '1,8 mil miembros', initials: 'L', color: 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200' },
               { name: 'Diseño cotidiano', handle: '960 miembros', initials: 'D', color: 'bg-zinc-200 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200' },
               { name: 'Rutas y escapadas', handle: '2,4 mil miembros', initials: 'R', color: 'bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200' },
             ]" :key="person.handle" class="flex items-center gap-fib-2 px-fib-4 py-fib-3 transition hover:bg-slate-100 dark:hover:bg-white/[0.04]">
-              <span aria-hidden="true" class="type-label flex h-10 w-10 items-center justify-center rounded-full" :class="person.color">{{ person.initials }}</span>
+              <span aria-hidden="true" class="type-label flex h-fib-5 w-fib-5 items-center justify-center rounded-full" :class="person.color">{{ person.initials }}</span>
               <span class="min-w-0 flex-1">
                 <span class="type-label block truncate">{{ person.name }}</span>
                 <span class="type-caption block truncate text-slate-500 dark:text-slate-400">{{ person.handle }}</span>
               </span>
-              <button type="button" aria-label="Unirse a la comunidad" class="type-caption rounded-lg border border-neutral-200 px-3 py-1.5 text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-600/25 dark:text-neutral-300 dark:hover:bg-neutral-700/10">Unirme</button>
+              <button type="button" aria-label="Unirse a la comunidad" class="type-caption rounded-lg border border-neutral-200 px-fib-3 py-fib-3 text-neutral-800 transition hover:bg-neutral-50 dark:border-neutral-600/25 dark:text-neutral-300 dark:hover:bg-neutral-700/10">Unirme</button>
             </div>
             <button type="button" class="type-label w-full border-t border-slate-100 px-fib-4 py-fib-3 text-left text-neutral-800 transition hover:bg-neutral-50 dark:border-white/5 dark:text-neutral-300 dark:hover:bg-white/[0.04]">Explorar comunidades</button>
           </section>
 
-          <footer class="type-caption flex flex-wrap gap-x-3 gap-y-1 px-4 pb-4 text-slate-500 dark:text-slate-500">
+          <footer class="type-caption flex flex-wrap gap-x-fib-3 gap-y-fib-1 px-fib-3 pb-fib-4 text-slate-500 dark:text-slate-500">
             <a href="#" class="hover:underline">Términos de Servicio</a><a href="#" class="hover:underline">Política de Privacidad</a>
             <a href="#" class="hover:underline">Política de cookies</a><a href="#" class="hover:underline">Accesibilidad</a>
             <a href="#" class="hover:underline">Información de anuncios</a><a href="#" class="hover:underline">Más opciones ···</a>
@@ -187,7 +187,7 @@ onMounted(() => feed.applyTheme())
       <button type="button" class="mobile-nav-item type-micro flex min-w-[55px] flex-col items-center gap-fib-1 rounded-xl px-fib-2 py-fib-1"><Mail :size="20" :stroke-width="1.8" class="h-5 w-5" aria-hidden="true" /><span>Mensajes</span></button>
     </nav>
 
-    <div v-if="feed.toast" role="status" class="type-label fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-full bg-neutral-900 px-5 py-3 text-white shadow-lg md:bottom-6">
+    <div v-if="feed.toast" role="status" class="type-label fixed bottom-fib-7 left-1/2 z-50 -translate-x-1/2 rounded-full bg-neutral-900 px-fib-4 py-fib-3 text-white shadow-lg md:bottom-fib-4">
       {{ feed.toast }}
     </div>
   </div>
