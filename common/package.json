@@ -1,5 +1,5 @@
 {
-  "name": "@pairfy/common",
+  "name": "@lovelacers/common",
   "version": "1.0.274",
   "description": "Common shared package",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pairfy/core.git"
+    "url": "https://github.com/lovelacers/core.git"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",

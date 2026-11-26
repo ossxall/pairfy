@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import ffmpeg from 'fluent-ffmpeg';
 import { createReadStream, existsSync, unlinkSync } from 'fs';
-import { logger } from '@pairfy/common';
+import { logger } from '@lovelacers/common';
 import { minioClient } from '../database/minio.js';
 import { uploadToSpaces } from '../utils/upload.js';
 import { Readable } from 'stream';
@@ -76,7 +76,7 @@ export async function handleVideoJob(job: Job) {
     // createEvent(urls)
 
     return { status: 'done', uploaded: urls };
-  } catch (err) {
+  } catch (err: any) {
     logger.error(`Error processing video job ${job.id}:`, err);
     throw err;
   }
