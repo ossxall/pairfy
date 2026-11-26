@@ -3,6 +3,16 @@ import { defineStore } from 'pinia'
 export type Theme = 'light' | 'dark'
 export type FeedTab = 'for-you' | 'following'
 
+export interface FeedComment {
+  id: number
+  name: string
+  handle: string
+  avatarInitials: string
+  avatarColor: string
+  time: string
+  text: string
+}
+
 export interface FeedPost {
   id: number
   name: string
@@ -19,6 +29,7 @@ export interface FeedPost {
   likes: number
   liked: boolean
   bookmarked: boolean
+  comments: FeedComment[]
   image?: string
   imageAlt?: string
 }
@@ -33,13 +44,33 @@ const initialPosts: FeedPost[] = [
     community: 'diseño',
     time: '12 min',
     text: 'Un buen diseño no pide atención: hace que todo resulte más fácil. ✨',
-    adaReward: 50,
+    adaReward: 1,
     following: true,
     replies: '24',
     reposts: 18,
     likes: 246,
     liked: false,
     bookmarked: false,
+    comments: [
+      {
+        id: 101,
+        name: 'Diego Salas',
+        handle: '@diegosalas',
+        avatarInitials: 'DS',
+        avatarColor: 'bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200',
+        time: 'hace 8 min',
+        text: 'Totalmente. Cuando una interfaz se entiende sin explicaciones, el diseño está haciendo su trabajo.',
+      },
+      {
+        id: 102,
+        name: 'Marina Costa',
+        handle: '@marinacosta',
+        avatarInitials: 'MC',
+        avatarColor: 'bg-zinc-200 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200',
+        time: 'hace 5 min',
+        text: 'Y se nota muchísimo cuando detrás hubo cuidado por los pequeños detalles.',
+      },
+    ],
   },
   {
     id: 2,
@@ -59,6 +90,26 @@ const initialPosts: FeedPost[] = [
     bookmarked: false,
     image: 'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1200&q=85',
     imageAlt: 'Amanecer dorado entre montañas y nubes',
+    comments: [
+      {
+        id: 201,
+        name: 'Clara Núñez',
+        handle: '@claranunez',
+        avatarInitials: 'CN',
+        avatarColor: 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200',
+        time: 'hace 24 min',
+        text: 'Justo necesitaba leer esto. Gracias por recordarlo 🌿',
+      },
+      {
+        id: 202,
+        name: 'Pablo Gil',
+        handle: '@pablogil',
+        avatarInitials: 'PG',
+        avatarColor: 'bg-stone-200 text-stone-700 dark:bg-stone-700 dark:text-stone-200',
+        time: 'hace 12 min',
+        text: 'Descansar también es avanzar. Me encanta la foto.',
+      },
+    ],
   },
   {
     id: 3,
@@ -76,6 +127,26 @@ const initialPosts: FeedPost[] = [
     likes: 93,
     liked: false,
     bookmarked: false,
+    comments: [
+      {
+        id: 301,
+        name: 'Sofía León',
+        handle: '@sofialeon',
+        avatarInitials: 'SL',
+        avatarColor: 'bg-zinc-200 text-zinc-700 dark:bg-zinc-700 dark:text-zinc-200',
+        time: 'hace 42 min',
+        text: '¡Felicidades! ¿Qué tecnología usaste para construirlo?',
+      },
+      {
+        id: 302,
+        name: 'Mateo Ruiz',
+        handle: '@mateoruiz',
+        avatarInitials: 'MR',
+        avatarColor: 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200',
+        time: 'hace 18 min',
+        text: 'Estoy trabajando en una app para organizar mis lecturas. Publicar algo propio siempre enseña un montón.',
+      },
+    ],
   },
 ]
 
@@ -116,6 +187,7 @@ export const useFeedStore = defineStore('feed', {
         likes: 0,
         liked: false,
         bookmarked: false,
+        comments: [],
       })
       this.draft = ''
       this.showToast('¡Tu publicación se ha publicado!')

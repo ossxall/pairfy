@@ -40,3 +40,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+License GNU GPL v3 only
