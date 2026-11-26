@@ -47,14 +47,6 @@ function boundedReward(amount: number) {
   return Math.min(Math.max(Math.floor(amount), 0), 1000)
 }
 
-function rewardColor(amount: number) {
-  const reward = boundedReward(amount)
-  if (reward >= 1000) return 'bg-gradient-to-r from-amber-300 to-yellow-400 text-amber-950 ring-amber-300/80 hover:from-amber-200 hover:to-yellow-300 dark:from-amber-300 dark:to-yellow-300'
-  if (reward >= 500) return 'bg-gradient-to-r from-violet-300 to-fuchsia-300 text-violet-950 ring-violet-300/80 hover:from-violet-200 hover:to-fuchsia-200 dark:from-violet-300 dark:to-fuchsia-300'
-  if (reward >= 250) return 'bg-gradient-to-r from-sky-300 to-cyan-300 text-sky-950 ring-sky-300/80 hover:from-sky-200 hover:to-cyan-200 dark:from-sky-300 dark:to-cyan-300'
-  return 'bg-gradient-to-r from-emerald-300 to-green-300 text-emerald-950 ring-emerald-300/80 hover:from-emerald-200 hover:to-green-200 dark:from-emerald-300 dark:to-green-300'
-}
-
 onMounted(() => feed.applyTheme())
 
 function sharePost() {
@@ -238,8 +230,7 @@ function sharePost() {
                     <button
                       type="button"
                       :aria-label="`Redeem ${boundedReward(post.adaReward)} ADA de la publicación de ${post.name}`"
-                      class="type-micro inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-1 font-semibold shadow-sm ring-1 transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
-                      :class="rewardColor(post.adaReward)"
+                      class="type-micro inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-300 px-2 py-1 font-semibold text-amber-950 shadow-sm ring-1 ring-amber-400/80 transition hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 dark:bg-amber-300 dark:hover:bg-amber-200"
                       @click="feed.showToast(`Canje de ${boundedReward(post.adaReward)} ADA seleccionado`)"
                     >
                       <Sparkles :size="12" :stroke-width="2.2" aria-hidden="true" />
