@@ -128,7 +128,7 @@ function sharePost() {
 
       <!-- Feed -->
       <main class="min-h-screen min-w-0 w-full pb-20">
-        <header class="sticky top-0 z-20 border-b border-slate-200/80 bg-[#f4f4f5]/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#09090b]/90">
+        <header class="sticky top-0 z-20 border-b border-slate-200/80 bg-[#f4f4f5]/70 backdrop-blur-md dark:border-white/10 dark:bg-[#09090b]/70">
           <div class="flex h-[72px] items-center justify-between px-1">
             <div>
               <p class="type-micro uppercase text-neutral-900 dark:text-neutral-300">PAIRFY · COMUNIDAD</p>
