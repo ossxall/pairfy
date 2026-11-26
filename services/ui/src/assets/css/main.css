@@ -19,26 +19,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Escala tipográfica — base 16px. */
-  --type-display-size: 1.875rem;
-  --type-display-line: 2.25rem;
+  /* Escala tipográfica Fibonacci: 13, 21 y 34px; base de lectura 15px. */
+  --type-display-size: 2.125rem;
+  --type-display-line: 2.625rem;
   --type-display-weight: 700;
-  --type-display-tracking: -0.022em;
+  --type-display-tracking: -0.025em;
 
-  --type-title-1-size: 1.5rem;
-  --type-title-1-line: 2rem;
+  --type-title-1-size: 1.625rem;
+  --type-title-1-line: 2.125rem;
   --type-title-1-weight: 700;
-  --type-title-1-tracking: -0.019em;
+  --type-title-1-tracking: -0.02em;
 
-  --type-title-2-size: 1.25rem;
-  --type-title-2-line: 1.75rem;
+  --type-title-2-size: 1.3125rem;
+  --type-title-2-line: 1.8125rem;
   --type-title-2-weight: 600;
-  --type-title-2-tracking: -0.017em;
+  --type-title-2-tracking: -0.015em;
 
-  --type-body-lg-size: 1.0625rem;
-  --type-body-lg-line: 1.5rem;
+  --type-body-lg-size: 1.125rem;
+  --type-body-lg-line: 1.625rem;
   --type-body-lg-weight: 400;
-  --type-body-lg-tracking: -0.013em;
+  --type-body-lg-tracking: -0.01em;
 
   --type-body-size: 0.9375rem;
   --type-body-line: 1.375rem;
@@ -50,15 +50,15 @@
   --type-label-weight: 600;
   --type-label-tracking: -0.009em;
 
-  --type-caption-size: 0.8125rem;
-  --type-caption-line: 1.125rem;
+  --type-caption-size: 0.75rem;
+  --type-caption-line: 1.0625rem;
   --type-caption-weight: 400;
   --type-caption-tracking: -0.003em;
 
   --type-micro-size: 0.6875rem;
-  --type-micro-line: 1rem;
+  --type-micro-line: 0.875rem;
   --type-micro-weight: 500;
-  --type-micro-tracking: 0.005em;
+  --type-micro-tracking: 0.008em;
 
   /* Colores de texto y superficie con contraste AA en ambos temas. */
   --surface-app: #f4f4f5;
@@ -184,7 +184,7 @@ button {
 input,
 textarea,
 select {
-  font-size: 1rem;
+  font-size: var(--type-body-size);
 }
 
 input,
@@ -208,13 +208,13 @@ a {
 }
 
 .composer-input {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
 }
 
 .input-control {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
 }
 
 ::placeholder {

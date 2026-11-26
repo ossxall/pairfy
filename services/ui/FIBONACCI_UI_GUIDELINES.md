@@ -53,9 +53,11 @@ to use a higher Fibonacci value.
 
 ## Typography and exceptions
 
-Keep typography on the separate type scale documented in `TYPOGRAPHY.md`.
-Do not force font sizes or line heights onto this spacing scale; readability
-and text hierarchy take priority.
+Typography follows its own Fibonacci-inspired scale, documented in
+`TYPOGRAPHY.md`: key sizes reference 13, 21, and 34 px, with a 15 px reading
+base and intermediate sizes for clear hierarchy. Use the shared `type-*`
+classes instead of adding one-off font sizes. Line heights are tuned for
+readability, not copied from the spacing scale.
 
 Small functional values such as icon sizes, borders, and focus outlines may
 remain outside the scale when required by the component or accessibility.
