@@ -12,6 +12,7 @@ export interface FeedPost {
   community: string
   time: string
   text: string
+  adaReward: number
   following: boolean
   replies: string
   reposts: number
@@ -32,6 +33,7 @@ const initialPosts: FeedPost[] = [
     community: 'diseño',
     time: '12 min',
     text: 'Un buen diseño no pide atención: hace que todo resulte más fácil. ✨',
+    adaReward: 50,
     following: true,
     replies: '24',
     reposts: 18,
@@ -48,6 +50,7 @@ const initialPosts: FeedPost[] = [
     community: 'bienestar',
     time: '38 min',
     text: 'Un recordatorio para hoy: descansar también forma parte del camino. 🌿',
+    adaReward: 250,
     following: true,
     replies: '12',
     reposts: 31,
@@ -66,6 +69,7 @@ const initialPosts: FeedPost[] = [
     community: 'tecnología',
     time: '1 h',
     text: 'Después de muchas tardes de trabajo, por fin publiqué mi portfolio. Aprendí muchísimo en el proceso. 🚀\n\n¿Qué proyecto personal tienes entre manos?',
+    adaReward: 1000,
     following: false,
     replies: '8',
     reposts: 6,
@@ -105,6 +109,7 @@ export const useFeedStore = defineStore('feed', {
         community: 'general',
         time: 'ahora',
         text,
+        adaReward: 50,
         following: true,
         replies: '0',
         reposts: 0,
