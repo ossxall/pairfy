@@ -234,7 +234,7 @@ function sharePost() {
                       @click="feed.showToast(`Canje de ${boundedReward(post.adaReward)} ADA seleccionado`)"
                     >
                       <Sparkles :size="12" :stroke-width="2.2" aria-hidden="true" />
-                      Redeem {{ boundedReward(post.adaReward) }} ADA
+                       {{ boundedReward(post.adaReward) }} ADA
                     </button>
                   </div>
                 </div>
