@@ -7,7 +7,6 @@ import {
   Ellipsis,
   House,
   Mail,
-  MessageCircleMore,
   Moon,
   Newspaper,
   Search,
@@ -43,8 +42,7 @@ onMounted(() => feed.applyTheme())
       <!-- Left navigation -->
       <aside class="hidden md:block">
         <div class="sticky top-0 flex h-screen flex-col px-1 py-fib-3">
-          <RouterLink to="/" aria-label="Pairfy, inicio" class="mb-fib-4 flex h-fib-6 items-center gap-fib-3 rounded-xl px-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
-            <MessageCircleMore :size="30" :stroke-width="1.8" aria-hidden="true" />
+          <RouterLink to="/" aria-label="Pairfy, inicio" class="mb-fib-4 flex h-fib-6 items-center rounded-xl px-fib-3 text-neutral-900 transition hover:bg-white dark:text-neutral-300 dark:hover:bg-white/5">
             <span class="type-title-2">Pairfy</span>
           </RouterLink>
 
