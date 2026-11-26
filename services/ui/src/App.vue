@@ -159,34 +159,31 @@ function sharePost() {
         </header>
 
         <section aria-label="Crear publicación" class="mb-fib-4 rounded-2xl border border-slate-200 bg-white p-fib-4 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
-          <div class="flex gap-fib-3">
-            <span aria-hidden="true" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-100">MD</span>
-            <div class="min-w-0 flex-1">
-              <p class="type-label mb-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
-              <textarea
-                v-model="feed.draft"
-                aria-label="Comparte algo con tu comunidad"
-                placeholder="¿Qué te gustaría compartir?"
-                rows="2"
-                class="composer-input w-full resize-none rounded-xl bg-slate-100 px-fib-3 py-fib-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06] dark:placeholder:text-slate-500"
-              ></textarea>
-              <div class="mt-fib-3 flex items-center justify-between">
-                <div class="flex items-center gap-1 text-neutral-900 dark:text-neutral-300">
-                  <button type="button" aria-label="Añadir foto" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Image :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-                  <button type="button" aria-label="Añadir GIF" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Clapperboard :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-                  <button type="button" aria-label="Añadir encuesta" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><List :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-                  <button type="button" aria-label="Añadir emoji" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Sticker :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-                  <button type="button" aria-label="Programar publicación" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><CalendarClock :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
-                </div>
-                <button
-                  type="button"
-                  :disabled="!feed.draft.trim()"
-                  class="type-label rounded-xl bg-neutral-900 px-fib-4 py-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
-                  @click="feed.createPost()"
-                >
-                  Publicar
-                </button>
+          <div class="min-w-0">
+            <p class="type-label mb-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
+            <textarea
+              v-model="feed.draft"
+              aria-label="Comparte algo con tu comunidad"
+              placeholder="¿Qué te gustaría compartir?"
+              rows="2"
+              class="composer-input w-full resize-none rounded-xl bg-slate-100 px-fib-3 py-fib-3 outline-none ring-neutral-700/30 transition placeholder:text-slate-500 focus:ring-2 dark:bg-white/[0.06] dark:placeholder:text-slate-500"
+            ></textarea>
+            <div class="mt-fib-3 flex items-center justify-between">
+              <div class="flex items-center gap-1 text-neutral-900 dark:text-neutral-300">
+                <button type="button" aria-label="Añadir foto" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Image :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+                <button type="button" aria-label="Añadir GIF" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Clapperboard :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+                <button type="button" aria-label="Añadir encuesta" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><List :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+                <button type="button" aria-label="Añadir emoji" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><Sticker :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
+                <button type="button" aria-label="Programar publicación" class="rounded-lg p-2 transition hover:bg-neutral-700/10"><CalendarClock :size="19" :stroke-width="1.8" class="h-[19px] w-[19px]" aria-hidden="true" /></button>
               </div>
+              <button
+                type="button"
+                :disabled="!feed.draft.trim()"
+                class="type-label rounded-xl bg-neutral-900 px-fib-4 py-fib-2 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-950 dark:hover:bg-neutral-300"
+                @click="feed.createPost()"
+              >
+                Publicar
+              </button>
             </div>
           </div>
         </section>
