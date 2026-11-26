@@ -192,7 +192,7 @@ function sharePost() {
         </section>
 
         <div v-if="feed.posts.length" class="space-y-4 pb-20">
-          <article v-for="post in visiblePosts" :key="post.id" class="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-white/10 dark:bg-[#1b1924] dark:hover:bg-[#201e2a]">
+          <article v-for="post in visiblePosts" :key="post.id" class="group rounded-2xl border border-slate-200 bg-transparent p-4 shadow-sm transition hover:shadow-md dark:border-white/10">
             <div class="mb-3 flex items-center gap-2">
               <span class="rounded-md bg-violet-500/10 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">Comunidad · {{ post.community }}</span>
             </div>
