@@ -89,8 +89,7 @@ onMounted(() => feed.applyTheme())
                   <span class="pairfy-mark-dot"></span>
                 </span>
                 <span class="min-w-0">
-                  <span class="type-title-2 block leading-none tracking-[-0.04em]">pairfy</span>
-                  <span class="type-micro mt-1 block uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">social space</span>
+                  <span class="type-title-2 block leading-none tracking-[-0.04em]">Pairfy</span>
                 </span>
               </RouterLink>
               <button type="button" aria-label="Más opciones" class="rounded-lg p-fib-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-white/10 dark:hover:text-white">
