@@ -57,7 +57,7 @@ function sharePost() {
 
 <template>
   <div class="min-h-screen bg-[#f4f4f5] text-slate-900 transition-colors dark:bg-[#09090b] dark:text-slate-100">
-    <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-fib-4 px-fib-3 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,720px)_320px] lg:gap-fib-5">
+    <div class="mx-auto grid min-h-screen max-w-[1440px] grid-cols-1 gap-fib-4 px-fib-3 md:grid-cols-[230px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,699px)_320px] lg:gap-fib-5">
       <!-- Left navigation -->
       <aside class="hidden md:block">
         <div class="sticky top-0 flex h-screen flex-col px-1 py-fib-3">
