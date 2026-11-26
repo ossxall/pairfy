@@ -199,6 +199,10 @@ a {
   background: var(--surface-app);
 }
 
+.composer-card {
+  background: var(--surface-app);
+}
+
 .feed-post-image {
   aspect-ratio: 16 / 9;
 }

@@ -158,7 +158,7 @@ function sharePost() {
           </div>
         </header>
 
-        <section aria-label="Crear publicación" class="mb-fib-4 rounded-2xl border border-slate-200 bg-white p-fib-4 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
+        <section aria-label="Crear publicación" class="composer-card mb-fib-4 rounded-2xl border border-slate-200 p-fib-4 shadow-sm dark:border-white/10">
           <div class="min-w-0">
             <p class="type-label mb-2 text-slate-700 dark:text-slate-200">Comparte con tu comunidad</p>
             <textarea
