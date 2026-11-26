@@ -8,8 +8,8 @@ mantener legibilidad y una separación clara entre roles.
 | Token | Tamaño / interlineado | Peso | Tracking | Ejemplo de uso |
 | --- | --- | ---: | ---: | --- |
 | `display` | 34 / 42 px (`2.125 / 2.625rem`) | 700 | `-0.025em` | `2.400` — cifra destacada |
-| `title-1` | 26 / 34 px (`1.625 / 2.125rem`) | 700 | `-0.02em` | Tu inicio |
-| `title-2` | 21 / 29 px (`1.3125 / 1.8125rem`) | 600 | `-0.015em` | Temas en auge |
+| `title-1` | 21 / 29 px (`1.3125 / 1.8125rem`) | 700 | `-0.02em` | Tu inicio |
+| `title-2` | 18 / 26 px (`1.125 / 1.625rem`) | 600 | `-0.015em` | Temas en auge |
 | `body-lg` | 18 / 26 px (`1.125 / 1.625rem`) | 400 | `-0.01em` | Texto de una publicación en detalle |
 | `body` | 15 / 22 px (`0.9375 / 1.375rem`) | 400 | `-0.009em` | Un buen diseño no pide atención. |
 | `label` | 15 / 20 px (`0.9375 / 1.25rem`) | 600 | `-0.009em` | Lucía Martín · Para ti |
