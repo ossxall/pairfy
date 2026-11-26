@@ -248,18 +248,18 @@ function sharePost() {
           </label>
 
           <section class="relative isolate overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800 p-fib-3 text-white shadow-lg shadow-neutral-950/20">
-            <Sparkles :size="76" :stroke-width="1" class="pointer-events-none absolute -right-3 -top-4 -z-10 rotate-12 text-white/15" aria-hidden="true" />
-            <p class="type-micro inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 uppercase text-white/90">
+            <Sparkles :size="55" :stroke-width="1" class="pointer-events-none absolute -right-2 -top-2 -z-10 rotate-12 text-white/15" aria-hidden="true" />
+            <p class="type-micro inline-flex items-center gap-fib-1 rounded-full border border-white/20 bg-white/10 px-fib-2 py-fib-1 uppercase text-white/90">
               <span class="h-1.5 w-1.5 rounded-full bg-neutral-300" aria-hidden="true"></span>
               Tu próxima conversación
             </p>
-            <h2 class="type-title-2 mt-2">Ideas que nos conectan.</h2>
-            <p class="type-body mt-1 text-white/85">Encuentra personas que se emocionan con lo mismo que tú.</p>
-            <div class="mt-3 flex flex-wrap gap-2" aria-label="Algunos temas para explorar">
-              <span class="type-caption rounded-full border border-white/20 bg-white/10 px-2.5 py-1">🎬 Cine de culto</span>
-              <span class="type-caption rounded-full border border-white/20 bg-white/10 px-2.5 py-1">🌱 Huertos urbanos</span>
+            <h2 class="type-title-2 mt-fib-2">Ideas que nos conectan.</h2>
+            <p class="type-body mt-fib-1 text-white/85">Conecta con gente como tú.</p>
+            <div class="mt-fib-3 flex flex-wrap gap-fib-2" aria-label="Algunos temas para explorar">
+              <span class="type-caption rounded-full border border-white/20 bg-white/10 px-fib-2 py-fib-1">🎬 Cine de culto</span>
+              <span class="type-caption rounded-full border border-white/20 bg-white/10 px-fib-2 py-fib-1">🌱 Huertos urbanos</span>
             </div>
-            <button type="button" class="type-label mt-3 rounded-lg bg-white px-4 py-1.5 text-neutral-900 transition hover:bg-neutral-100">Encuentra tu comunidad <span aria-hidden="true">→</span></button>
+            <button type="button" class="type-label mt-fib-3 rounded-lg bg-white px-fib-3 py-fib-1 text-neutral-900 transition hover:bg-neutral-100">Encuentra tu comunidad <span aria-hidden="true">→</span></button>
           </section>
 
           <section class="overflow-hidden rounded-2xl border border-slate-200 bg-[var(--surface-app)] shadow-sm dark:border-white/10">
