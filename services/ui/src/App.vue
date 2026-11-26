@@ -254,7 +254,7 @@ function sharePost() {
             <button type="button" class="type-label mt-4 rounded-lg bg-white px-4 py-2 text-neutral-800 transition hover:bg-neutral-50">Explorar temas</button>
           </section>
 
-          <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-[#18181b]">
+          <section class="overflow-hidden rounded-2xl border border-slate-200 bg-[var(--surface-app)] shadow-sm dark:border-white/10">
             <div class="px-fib-4 pb-fib-2 pt-fib-4">
               <h2 class="type-title-2">Temas en auge</h2>
               <p class="type-caption mt-1 text-slate-500 dark:text-slate-400">Lo más comentado ahora</p>
