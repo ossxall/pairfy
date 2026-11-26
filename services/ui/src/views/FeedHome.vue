@@ -128,14 +128,12 @@ function sharePost() {
             <span class="type-label truncate hover:underline">{{ post.name }}</span>
             <span class="type-caption truncate text-slate-500 dark:text-slate-500">{{ post.handle }}</span>
             <span class="type-caption shrink-0 text-slate-500 dark:text-slate-500">· {{ post.time }}</span>
-            <button
-              type="button"
+            <span
               :aria-label="`Earned ${boundedEarned(post.earnedAda)} ADA`"
-              class="type-micro ml-fib-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-emerald-100 px-fib-1 py-fib-1 font-semibold text-emerald-900 shadow-sm ring-1 ring-emerald-300 transition hover:bg-emerald-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-800 dark:hover:bg-emerald-900"
-              @click.stop="feed.showToast(`Earned ${boundedEarned(post.earnedAda)} ADA`)"
+              class="type-micro ml-fib-1 inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-emerald-100 px-fib-1 py-fib-1 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
             >
               Earned {{ boundedEarned(post.earnedAda) }} ADA
-            </button>
+            </span>
             <button type="button" :aria-label="`Más opciones de ${post.name}`" class="ml-auto -mr-fib-3 shrink-0 rounded-full p-fib-3 text-slate-500 transition hover:bg-neutral-900/10 hover:text-neutral-900" @click.stop>
               <Ellipsis :size="21" :stroke-width="1.8" class="h-fib-4 w-fib-4" aria-hidden="true" />
             </button>
