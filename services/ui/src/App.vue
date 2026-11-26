@@ -190,9 +190,6 @@ function sharePost() {
 
         <div v-if="feed.posts.length" class="flex flex-col gap-fib-4 pb-20">
           <article v-for="post in visiblePosts" :key="post.id" class="feed-post group rounded-2xl border border-slate-200 p-fib-4 shadow-sm transition hover:shadow-md dark:border-white/10">
-            <div class="mb-fib-3 flex items-center gap-fib-2">
-              <span class="type-micro rounded-md bg-neutral-700/10 px-2 py-1 uppercase text-neutral-800 dark:text-neutral-300">Comunidad · {{ post.community }}</span>
-            </div>
             <div class="flex gap-fib-3">
               <span :aria-label="`Avatar de ${post.name}`" role="img" class="type-label flex h-fib-5 w-fib-5 shrink-0 items-center justify-center rounded-full" :class="post.avatarColor">{{ post.avatarInitials }}</span>
               <div class="min-w-0 flex-1">
