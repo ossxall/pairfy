@@ -101,10 +101,8 @@ function sharePost() {
           </button>
 
           <div class="mt-auto space-y-fib-3 pb-fib-2">
-            <div class="rounded-2xl border border-slate-200 bg-white p-fib-3 shadow-sm dark:border-white/10 dark:bg-[#18181b]">
-              <p class="type-label">Apariencia</p>
-              <p class="type-caption mt-1 text-slate-500 dark:text-slate-400">Personaliza tu experiencia</p>
-              <div class="mt-fib-3 grid grid-cols-2 gap-fib-2">
+            <div class="rounded-2xl border border-slate-200 bg-[var(--surface-app)] p-fib-3 shadow-sm dark:border-white/10">
+              <div class="grid grid-cols-2 gap-fib-2">
                 <button
                   type="button"
                   :aria-pressed="feed.theme === 'light'"
@@ -252,7 +250,6 @@ function sharePost() {
               </div>
             </div>
           </article>
-          <button type="button" class="type-label w-full py-5 text-neutral-900 transition hover:bg-slate-50 dark:text-neutral-100 dark:hover:bg-white/[0.025]">Mostrar más publicaciones</button>
         </div>
         <div v-else class="px-8 py-16 text-center">
           <h2 class="type-title-1">Tu timeline está empezando</h2>
